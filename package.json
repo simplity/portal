@@ -1,0 +1,23 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "simplity website",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "stylus source/stylesheets/index.styl -o static/css",
+    "watch-css": "stylus source/stylesheets/index.styl -o static/css -w",
+    "clean": "rimraf static\\css && mkdir static\\css",
+    "build": "npm run clean && npm run build-css",
+    "watch": "npm run clean && npm run build-css && nodemon server -e js,jade",
+    "start": "node server"
+  },
+  "author": "Chetana",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3",
+    "jade": "^1.11.0",
+    "morgan": "^1.8.2",
+    "nodemon": "^1.9.2",
+    "stylus": "^0.54.5"
+  }
+}

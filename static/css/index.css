@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400,200,700");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Source Code Pro', monospace;
+  min-width: 1020px;
+  word-wrap: break-word;
+}
+.container {
+  height: 23px;
+  width: 84px;
+  color: #fff;
+  font-family: Calibri;
+  font-size: 26px;
+  line-height: 40px;
+  position: relative;
+  height: 678px;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.containerArt-1 {
+  height: 678px;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  background-color: #a16ded;
+  background: linear-gradient(270deg, #316780 0%, #284d7e 100%);
+}
+.containerArt-2 {
+  height: 0px;
+  width: 0px;
+  position: absolute;
+  z-index: 2;
+  border-bottom: 250px solid #fff;
+  border-left: 2400px solid transparent;
+  bottom: 0px;
+  right: 0px;
+}
+.relative-1 {
+  position: relative;
+}
+.relative-2 {
+  position: relative;
+  top: 150px;
+}
+.relative-3 {
+  position: relative;
+  top: 250px;
+}
+.logo {
+  height: 23px;
+  width: 90px;
+  color: #fff;
+  font-family: Calibri;
+  font-size: 26px;
+  line-height: 40px;
+  z-index: 1;
+  left: 0;
+  position: absolute;
+}
+.navItems {
+  color: #fff;
+  font-family: SegoeUI;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 40px;
+  z-index: 2;
+  right: 0;
+  position: absolute;
+  list-style-type: none;
+}
+.navItems li {
+  display: inline;
+  margin: 10px;
+  height: 11px;
+  width: 180px;
+}
+.banner-1 {
+  height: 77px;
+  width: 857px;
+  color: #fff;
+  font-family: "Segoe UI";
+  font-size: 78px;
+  font-weight: 300;
+  line-height: 90px;
+  z-index: 4;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  margin-bottom: 10px;
+}
+.banner-2 {
+  height: 20px;
+  width: 857px;
+  color: #fff;
+  font-family: "Segoe UI";
+  font-size: 20px;
+  z-index: 4;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+}
+.bannerButtonContainer {
+  height: 77px;
+  width: 857px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+.bannerButton-1 {
+  height: 48px;
+  width: 149px;
+  background-color: #f4ba0b;
+  z-index: 4;
+  margin-right: auto;
+  position: relative;
+}
+.bannerButtonText-1 {
+  height: 10px;
+  width: 89px;
+  color: #000;
+  font-family: OpenSans;
+  font-size: 14px;
+  font-weight: 600;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
