@@ -11,7 +11,7 @@
     "watch": "npm run clean && npm run build-css && nodemon server -e js,jade",
     "start": "node server"
   },
-  "author": "Chetana",
+  "author": "Simplity",
   "license": "ISC",
   "dependencies": {
     "express": "^4.15.3",
