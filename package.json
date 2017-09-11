@@ -10,7 +10,7 @@
     "clean": "rimraf static\\css && mkdir static\\css",
     "build": "npm run clean && npm run build-css && node jade-build",
     "watch": "npm run clean && npm run build-css && nodemon server -e js,jade",
-	"publish":"node publish"
+	"publish":"node publish",
     "start": "node server"
   },
   "author": "Simplity",
