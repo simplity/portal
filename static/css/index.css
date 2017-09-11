@@ -30,7 +30,7 @@ body {
   position: absolute;
   z-index: 1;
   background-color: #a16ded;
-  background: linear-gradient(270deg, #316780 0%, #284d7e 100%);
+  background: linear-gradient(270deg, #af480c 0%, #284d7e 100%);
 }
 .containerArt-2 {
   height: 0px;

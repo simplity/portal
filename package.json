@@ -6,9 +6,11 @@
   "scripts": {
     "build-css": "stylus source/stylesheets/index.styl -o static/css",
     "watch-css": "stylus source/stylesheets/index.styl -o static/css -w",
+    "watch-jade": "nodemon jade-build -e js,jade",
     "clean": "rimraf static\\css && mkdir static\\css",
-    "build": "npm run clean && npm run build-css",
+    "build": "npm run clean && npm run build-css && node jade-build",
     "watch": "npm run clean && npm run build-css && nodemon server -e js,jade",
+	"publish":"node publish"
     "start": "node server"
   },
   "author": "Simplity",
@@ -19,5 +21,8 @@
     "morgan": "^1.8.2",
     "nodemon": "^1.9.2",
     "stylus": "^0.54.5"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.0.0"
   }
 }
