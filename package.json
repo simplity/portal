@@ -4,10 +4,10 @@
   "description": "simplity website",
   "main": "index.js",
   "scripts": {
-    "build-css": "stylus source/stylesheets/index.styl -o static/css",
-    "watch-css": "stylus source/stylesheets/index.styl -o static/css -w",
+    "build-css": "stylus source/stylesheets/index.styl -o docs/css",
+    "watch-css": "stylus source/stylesheets/index.styl -o docs/css -w",
     "watch-jade": "nodemon jade-build -e js,jade",
-    "clean": "rimraf static\\css && mkdir static\\css",
+    "clean": "rimraf docs\\css && mkdir docs\\css",
     "build": "npm run clean && npm run build-css && node jade-build",
     "watch": "npm run clean && npm run build-css && nodemon server -e js,jade",
 	"publish":"node publish",
