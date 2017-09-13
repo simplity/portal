@@ -6,10 +6,11 @@
   "scripts": {
     "build-css": "stylus source/stylesheets/index.styl -o docs/css",
     "watch-css": "stylus source/stylesheets/index.styl -o docs/css -w",
+	"build-jade": "node jade-build",
     "watch-jade": "nodemon jade-build -e js,jade",
     "clean": "rimraf docs\\css && mkdir docs\\css",
     "build": "npm run clean && npm run build-css && node jade-build",
-    "watch": "npm run clean && npm run build-css && nodemon server -e js,jade",
+    "watch": "npm run clean && npm run build-css && npm run build-jade && nodemon server -e js,jade",
     "start": "node server"
   },
   "author": "Simplity",
