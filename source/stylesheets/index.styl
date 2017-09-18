@@ -2,11 +2,15 @@
   margin 0
   padding 0
   box-sizing border-box
+html
+  position:relative; 
+  min-height: 100%;
 
 body
   font-family 'Source Code Pro', monospace
   min-width 1020px
   word-wrap break-word
+  min-height: 100%;
   
 .mainContainer
   height 100%
@@ -95,7 +99,7 @@ body
   color: #b6cbe6;
   text-decoration: none;
   
-a:hover
+a.navLinks:hover
   color: #FFFFFF;
   text-decoration: underline;
 
@@ -835,8 +839,9 @@ a:hover
   position relative
   margin-bottom: 50px
   opacity 0.5
+  left 10%
   
-.actionsDesc
+.actionsType
   height: 19px;
   color: #32325D;
   font-family: SegoeUI;
@@ -845,3 +850,94 @@ a:hover
   line-height: 0;
   position relative
   margin-bottom: 50px
+  left 10%
+  
+.actionsDesc
+  height: 54px;
+  width: 672px;
+  color: #32325D;
+  font-family: "Segoe UI";
+  font-size: 16px;
+  line-height: 1.2
+  margin-top 30px
+  opacity 0.8
+  
+.letUsSee
+  height: 12px;
+  width: 287px;
+  color: #32325D;
+  font-family: "Segoe UI";
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1;
+  margin-top 38px
+  opacity 0.7
+  
+.rdbmsContainer
+  position relative
+ 
+.rdbmsactionsRow
+  height 200px
+  width 100%
+  position relative
+  top 20px
+  list-style-type none
+  margin-bottom 20px
+
+.rdbmsactionsRow li
+  height 200px
+  width 278px
+  border 1px solid #E8ECF0
+  background-color #FFFFFF
+  display inline-block
+  margin 10px
+  
+.rdbmsactionImage
+  height: 100%;
+  width: 20%;
+  position: relative;
+  margin-left: 21px;
+  margin-top: 25px;
+  display: inline-block;
+  
+.rdbmsRelative
+  width: 70%;
+  height: 100%;
+  position: relative;
+  display: inline-block;
+
+.rdbmsactionHeader
+  height: 20%;
+  width: 100%;
+  color: #32325D;
+  font-family: SegoeUI;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 18px;
+  position absolute
+  margin-top 31px
+  
+.rdbmsactionDesc
+  height 40%
+  width 100%
+  color #476894
+  font-family "Segoe UI"
+  font-size 16px
+  position relative
+  margin-left auto
+  margin-right auto
+  top 40%
+  line-height: 1em;
+
+.rdbmsactionLink
+  height 20%
+  width 100%
+  color: #7E96F0;
+  font-family: "Segoe UI";
+  font-size: 12px;
+  line-height: 1;
+  position relative
+  opacity 0.7
+  top 40%
+  left 50%
+  
