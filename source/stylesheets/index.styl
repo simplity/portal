@@ -7,10 +7,14 @@ html
   min-height: 100%;
 
 body
-  font-family 'Source Code Pro', monospace
-  min-width 1020px
-  word-wrap break-word
-  min-height: 100%;
+  font-family 'Source Code Pro', monospace;
+  word-wrap break-word;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;  
+
   
 .mainContainer
   height 100%
@@ -96,7 +100,12 @@ body
   width 180px
 
 .navLinks
-  color: #b6cbe6;
+  height: 12px;
+  width: 48px;
+  color: #FFFFFF;
+  font-family: "Segoe UI";
+  font-size: 16px;
+  line-height: 40px;
   text-decoration: none;
   
 a.navLinks:hover
@@ -139,14 +148,15 @@ a.navLinks:hover
   position absolute
   
 .bannerButtonText-1
-  height 10px
-  width 100%
-  color #000000
-  font-family  OpenSans
-  font-size 14px
-  font-weight 600
-  position relative
-  left 15%
+  height 10px;
+  width 100%;
+  color #000000;
+  font-size 14px;
+  font-weight 600;
+  font-family "Open Sans";
+  position relative;
+  text-align center;
+  vertical-align middle;  
   
 .bannerButton-2
   height 48px
@@ -161,30 +171,33 @@ a.navLinks:hover
   border-bottom-right-radius 3px
   margin-right auto
   position absolute
+  
 
 .bannerButtonText-2
-  color #F4BA0B
+  color #f4ba0b
   height 10px
   width 100%
-  font-family OpenSans
-  font-size 14px
+  font-family "OpenSans"
   font-weight 600
+  font-size 14px
   position relative
-  left 10%  
+  text-align center
+  vertical-align middle
   
 .componentContainer
-  height 359px
-  width 1199px
-  top 550px
-  border-top-left-radius 5px
-  border-top-right-radius 5px
-  border-bottom-left-radius 5px
-  border-bottom-right-radius 5px
-  background-color white
-  box-shadow 0 0 13px 3px rgba(34,51,68,0.09)
-  position absolute
-  z-index 3
-  left 10%
+  height: 359px;
+  width: 80%;
+  top: -200px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 13px 3px rgba(34,51,68,0.09);
+  position: relative;
+  z-index: 3;
+  margin-left: auto;
+  margin-right: auto;
   
 .componentsHeader
   height 34px
@@ -305,8 +318,12 @@ a.navLinks:hover
   left 80%
   
 .loginContainer
-  position relative
-  margin-top: 50px;
+   position: relative;   
+   width: 80%;
+   z-index: 3;
+   margin-left: auto;
+   margin-right: auto;
+   top: -300px;
 
 .loginBanner
   height 1.68%
@@ -399,9 +416,15 @@ a.navLinks:hover
   height 400px
   width 100%
   background-color aliceblue
-  top 460px
+  top 120px
   position relative
-
+  
+.flyInternalContainer
+  height 100%
+  width 80%
+  margin-left auto
+  margin-right auto
+	
 .flyImage
   width: 362px;
   position absolute
@@ -479,7 +502,7 @@ a.navLinks:hover
 .helperContainer
   height 400px
   width 100%
-  top 500px
+  top 120px
   position relative
 
 .helperImage
@@ -598,11 +621,17 @@ a.navLinks:hover
   
 .feedbackContainer
   width 100%
-  top 550px
+  top 120px
   position relative
   opacity 0.4
   background-color #ecf6f9
   margin-top: 150px
+  
+.feedbackInternalContainer
+  height 100%
+  width 80%
+  margin-left auto
+  margin-right auto
   
 .feedbackImg
   position relative
@@ -619,9 +648,11 @@ a.navLinks:hover
   left 30%
   
 .featuresContainer
-  width 100%
-  top 600px
-  position relative
+  top 120px
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;  
   
 .featuresHeader
   font-family "Segoe UI"
@@ -642,7 +673,6 @@ a.navLinks:hover
   height 404px
   width 100%
   position relative
-  left 10%
   top 20px
   list-style-type none
 
@@ -712,69 +742,31 @@ a.navLinks:hover
   position absolute
   left 10%
   top 40%
-  
-.actionsRow2
-  height 404px
-  width 100%
-  position relative
-  left 10%
-  list-style-type none
 
-.actionsRow2 li
-  height 344px
-  width 278px
-  border 1px solid #DEE7F0
-  background-color #F6F9FC
-  background linear-gradient(0deg, #FFFFFF 0%, #D0E4ED 100%)
-  display inline-block
-  margin 10px
-  
 .footerContainer
-  height: 437px;
   width: 100%;
   background-color: #28607A;
   position relative
-  top 650px
+  top 120px
   
 .quickNavigationContainer
-  position relative
-  top 20%
+  position: relative;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
   
-.footerCol1
-  height: 120px;
-  color: #B6CBE6;
+.footerCol
+  vertical-align: top;
+  display: inline-block;
+  width: 25%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  height: 250px;
+  color: #b6cbe6;
   font-family: "Open Sans";
   font-size: 14px;
   font-weight: bold;
-  position absolute
-  left 15%
-
-.footerCol2
-  height: 120px;
-  color: #B6CBE6;
-  font-family: "Open Sans";
-  font-size: 14px;
-  font-weight: bold;
-  position absolute
-  left 30%
-
-.footerCol3
-  height: 181px;
-  color: #B6CBE6;
-  font-family: "Open Sans";
-  font-size: 14px;
-  font-weight: bold;
-  position absolute
-  left 45%
-
-.footerCol4
-  height: 162px;
-  color: #B6CBE6;
-  font-family: "Open Sans";
-  font-size: 14px;
-  font-weight: bold;
-  position absolute
-  left 60%
 
 .quickNavigation1
   margin-top 25px
@@ -793,35 +785,18 @@ a.navLinks:hover
   left 2%
   
 .copyRightContainer
-  height: 52px;
   width: 100%;
   font-family: OpenSans;
   font-size: 14px;
-  background-color: #1F4E64;
-  position relative
-  top 80%
+  background-color: #1f4e64;
+  bottom: 0px;
   
 .copyRightText
-  color: #ffffff;
-  left 35%
-  position absolute
-  top 35%
-  opacity 0.5
+  color: #fff;
+  padding: 10px;
+  opacity: 0.5;
+  text-align: center;  
   
-  
-  
-  
-  
-  
-  
-  
-/* CSS for Features */
-
-.featuresContainer
-  left 10%
-  right 10%
-  position relative
-
 .featuresHeader
   height: 34px;
   color: #32325D;

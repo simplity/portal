@@ -42,16 +42,17 @@ div.loginContainer
   div.loginImage
     img(src= "/portal/images/login.png")
 div.flyContainer
-  div.flyImage
-    img(src= "/portal/images/onTheFly.png")
-  div.flyContent
-    div.flyHeader On the fly Services
-    div.flyDescription Expected input for an on-the-fly service can be specified. Simplity parses request data for this input and invokes the requested on-the-fly service.
-  div.flyButtonsBanner
-      div.flyBannerButton-1
-        div.flyBannerButtonText-1 GET STARTED
-      div.flyBannerButton-2
-        div.flyBannerButtonText-2 VIEW DOCUMENTATION
+  div.flyInternalContainer
+    div.flyImage
+      img(src= "/portal/images/onTheFly.png")
+    div.flyContent
+      div.flyHeader On the fly Services
+      div.flyDescription Expected input for an on-the-fly service can be specified. Simplity parses request data for this input and invokes the requested on-the-fly service.
+    div.flyButtonsBanner
+        div.flyBannerButton-1
+          div.flyBannerButtonText-1 GET STARTED
+        div.flyBannerButton-2
+          div.flyBannerButtonText-2 VIEW DOCUMENTATION
 div.helperContainer
   div.helperContent
     div.helperHeader Simple built-in helpers that solve complicated logic
@@ -70,9 +71,10 @@ div.helperContainer
   div.servletContainer
     div.servletContent web.xml configuration for Simplity serve class
 div.feedbackContainer
-  div.feedback1 Simplity kernel allowed us to build a full-fledged e-commerce site within 2 days
-  div.feedbackImg
-    img(src= "/portal/images/feedback.png")
+  div.feedbackInternalContainer
+    div.feedback1 Simplity kernel allowed us to build a full-fledged e-commerce site within 2 days
+    div.feedbackImg
+      img(src= "/portal/images/feedback.png")
 div.featuresContainer
   div.featuresHeader Features
   div.featuresDesc We provide the best solutions
@@ -106,7 +108,7 @@ div.featuresContainer
         div.actionDesc Action that reads rows from one or more child records based on the value of a parent key.
         div.actionLinkButton
           div.actionLinkButtonText LEARN MORE
-    ul.actionsRow2
+    ul.actionsRow1
       li
         div.actionImage
           img(src= "/portal/images/save.png")

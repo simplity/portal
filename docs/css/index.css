@@ -9,9 +9,12 @@ html {
 }
 body {
   font-family: 'Source Code Pro', monospace;
-  min-width: 1020px;
   word-wrap: break-word;
-  min-height: 100%;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
 }
 .mainContainer {
   height: 100%;
@@ -97,7 +100,12 @@ body {
   width: 180px;
 }
 .navLinks {
-  color: #b6cbe6;
+  height: 12px;
+  width: 48px;
+  color: #fff;
+  font-family: "Segoe UI";
+  font-size: 16px;
+  line-height: 40px;
   text-decoration: none;
 }
 a.navLinks:hover {
@@ -143,11 +151,12 @@ a.navLinks:hover {
   height: 10px;
   width: 100%;
   color: #000;
-  font-family: OpenSans;
   font-size: 14px;
   font-weight: 600;
+  font-family: "Open Sans";
   position: relative;
-  left: 15%;
+  text-align: center;
+  vertical-align: middle;
 }
 .bannerButton-2 {
   height: 48px;
@@ -167,25 +176,27 @@ a.navLinks:hover {
   color: #f4ba0b;
   height: 10px;
   width: 100%;
-  font-family: OpenSans;
-  font-size: 14px;
+  font-family: "OpenSans";
   font-weight: 600;
+  font-size: 14px;
   position: relative;
-  left: 10%;
+  text-align: center;
+  vertical-align: middle;
 }
 .componentContainer {
   height: 359px;
-  width: 1199px;
-  top: 550px;
+  width: 80%;
+  top: -200px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   background-color: #fff;
   box-shadow: 0 0 13px 3px rgba(34,51,68,0.09);
-  position: absolute;
+  position: relative;
   z-index: 3;
-  left: 10%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .componentsHeader {
   height: 34px;
@@ -308,7 +319,11 @@ a.navLinks:hover {
 }
 .loginContainer {
   position: relative;
-  margin-top: 50px;
+  width: 80%;
+  z-index: 3;
+  margin-left: auto;
+  margin-right: auto;
+  top: -300px;
 }
 .loginBanner {
   height: 1.68%;
@@ -400,8 +415,14 @@ a.navLinks:hover {
   height: 400px;
   width: 100%;
   background-color: #f0f8ff;
-  top: 460px;
+  top: 120px;
   position: relative;
+}
+.flyInternalContainer {
+  height: 100%;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .flyImage {
   width: 362px;
@@ -480,7 +501,7 @@ a.navLinks:hover {
 .helperContainer {
   height: 400px;
   width: 100%;
-  top: 500px;
+  top: 120px;
   position: relative;
 }
 .helperImage {
@@ -598,11 +619,17 @@ a.navLinks:hover {
 }
 .feedbackContainer {
   width: 100%;
-  top: 550px;
+  top: 120px;
   position: relative;
   opacity: 0.4;
   background-color: #ecf6f9;
   margin-top: 150px;
+}
+.feedbackInternalContainer {
+  height: 100%;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .feedbackImg {
   position: relative;
@@ -619,8 +646,10 @@ a.navLinks:hover {
   left: 30%;
 }
 .featuresContainer {
-  width: 100%;
-  top: 600px;
+  top: 120px;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
   position: relative;
 }
 .featuresHeader {
@@ -642,7 +671,6 @@ a.navLinks:hover {
   height: 404px;
   width: 100%;
   position: relative;
-  left: 10%;
   top: 20px;
   list-style-type: none;
 }
@@ -713,68 +741,30 @@ a.navLinks:hover {
   left: 10%;
   top: 40%;
 }
-.actionsRow2 {
-  height: 404px;
-  width: 100%;
-  position: relative;
-  left: 10%;
-  list-style-type: none;
-}
-.actionsRow2 li {
-  height: 344px;
-  width: 278px;
-  border: 1px solid #dee7f0;
-  background-color: #f6f9fc;
-  background: linear-gradient(0deg, #fff 0%, #d0e4ed 100%);
-  display: inline-block;
-  margin: 10px;
-}
 .footerContainer {
-  height: 437px;
   width: 100%;
   background-color: #28607a;
   position: relative;
-  top: 650px;
+  top: 120px;
 }
 .quickNavigationContainer {
   position: relative;
-  top: 20%;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
 }
-.footerCol1 {
-  height: 120px;
+.footerCol {
+  vertical-align: top;
+  display: inline-block;
+  width: 25%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  height: 250px;
   color: #b6cbe6;
   font-family: "Open Sans";
   font-size: 14px;
   font-weight: bold;
-  position: absolute;
-  left: 15%;
-}
-.footerCol2 {
-  height: 120px;
-  color: #b6cbe6;
-  font-family: "Open Sans";
-  font-size: 14px;
-  font-weight: bold;
-  position: absolute;
-  left: 30%;
-}
-.footerCol3 {
-  height: 181px;
-  color: #b6cbe6;
-  font-family: "Open Sans";
-  font-size: 14px;
-  font-weight: bold;
-  position: absolute;
-  left: 45%;
-}
-.footerCol4 {
-  height: 162px;
-  color: #b6cbe6;
-  font-family: "Open Sans";
-  font-size: 14px;
-  font-weight: bold;
-  position: absolute;
-  left: 60%;
 }
 .quickNavigation1 {
   margin-top: 25px;
@@ -792,26 +782,17 @@ a.navLinks:hover {
   left: 2%;
 }
 .copyRightContainer {
-  height: 52px;
   width: 100%;
   font-family: OpenSans;
   font-size: 14px;
   background-color: #1f4e64;
-  position: relative;
-  top: 80%;
+  bottom: 0px;
 }
 .copyRightText {
   color: #fff;
-  left: 35%;
-  position: absolute;
-  top: 35%;
+  padding: 10px;
   opacity: 0.5;
-}
-/* CSS for Features */
-.featuresContainer {
-  left: 10%;
-  right: 10%;
-  position: relative;
+  text-align: center;
 }
 .featuresHeader {
   height: 34px;
