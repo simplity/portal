@@ -1003,3 +1003,170 @@ a.navLinks:hover {
   position: relative;
   margin: 20px;
 }
+.downloadsContainer {
+  height: 100%;
+  width: 100%;
+  background-color: #f6f9fc;
+}
+.downloadsInnerContainer {
+  height: 100%;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.downloadsHeader {
+  color: #32325d;
+  font-family: SegoeUI;
+  font-size: 34px;
+  font-weight: 600;
+  padding-top: 20px;
+}
+.downloadsDesc {
+  color: #32325d;
+  font-family: "Segoe UI";
+  font-size: 18px;
+  margin-top: 25px;
+}
+.line {
+  height: 1px;
+  background-color: #c9e3f0;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.releaseList {
+  color: #c9e3f0;
+  font-family: "Segoe UI";
+  font-size: 16px;
+  line-height: 28px;
+}
+.releaseListItems {
+  margin-left: 20px;
+}
+.releaseListItems li {
+  color: #1e74e6;
+  opacity: 0.7;
+}
+.releaseContainer {
+  width: 100%;
+  background-color: #fff;
+  margin-top: 35px;
+}
+.releaseInnerContainer {
+  height: 100%;
+  width: 96%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.releaseList1 {
+  height: 19px;
+  color: #55556a;
+  font-family: "Segoe UI";
+  font-size: 18px;
+  margin-top: 36px;
+}
+.stable {
+  width: 60%;
+  color: #55556a;
+  font-family: SegoeUI;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 32px;
+  display: inline-block;
+}
+.codeoptions {
+  list-style-type: none;
+  display: inline-block;
+}
+.codeoptions li {
+  display: inline;
+  margin: 10px;
+  color: #55556a;
+  font-family: "Segoe UI";
+  font-size: 12px;
+}
+.box {
+  height: 158px;
+  background-color: #f1f1f1;
+}
+.dependency {
+  width: 94%;
+  color: #55556a;
+  font-family: "Segoe UI";
+  font-size: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+}
+.snapshots {
+  height: 19px;
+  width: 83px;
+  color: #32325d;
+  font-family: SegoeUI;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 32px;
+  margin-top: 26px;
+}
+.snapDesc {
+  color: #55556a;
+  font-family: "Segoe UI";
+  font-size: 16px;
+  margin-top: 19px;
+}
+.mavenurl {
+  margin-left: 20px;
+}
+.relative4 {
+  line-height: 3;
+}
+/**
+**css for getStarted
+**/
+.accordian {
+  height: 70px;
+  width: 100%;
+  opacity: 0.9;
+  background-color: #c9e3f0;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.accordianName {
+  height: 19px;
+  color: #32325d;
+  font-family: "Segoe UI";
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 70px;
+  margin-left: 20px;
+}
+.creationSteps {
+  font-family: "Segoe UI";
+  font-size: 16px;
+}
+.creationSteps li {
+  margin-left: 20px;
+}
+.codeoptions1 {
+  list-style-type: none;
+  display: inline-block;
+}
+.codeoptions1 li {
+  display: inline;
+  margin: 10px;
+  color: #55556a;
+  font-family: "Segoe UI";
+  font-size: 12px;
+}
+.stable1 {
+  width: 60%;
+  color: #55556a;
+  font-family: SegoeUI;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 32px;
+  display: inline-block;
+}
+.paragraph {
+  font-family: SegoeUI;
+  font-size: 16px;
+}
