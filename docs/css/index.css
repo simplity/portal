@@ -1088,6 +1088,18 @@ a.navLinks:hover {
   height: 158px;
   background-color: #f1f1f1;
 }
+.boxsmall {
+  height: 200px;
+  background-color: #f1f1f1;
+}
+.boxmedium {
+  height: 400px;
+  background-color: #f1f1f1;
+}
+.boxlarge {
+  height: 550px;
+  background-color: #f1f1f1;
+}
 .dependency {
   width: 94%;
   color: #55556a;

@@ -3,6 +3,7 @@ var homepage = require("jade").compileFile(__dirname+"/source/templates/homepage
 	featurespage = require("jade").compileFile(__dirname+"/source/templates/features.jade"),
 	examplespage = require("jade").compileFile(__dirname+"/source/templates/examples.jade"),
 	startpage = require("jade").compileFile(__dirname+"/source/templates/getStarted.jade"),
+	gettingstartedpage = require("jade").compileFile(__dirname+"/source/templates/gettingStarted.jade"),
 	downloadspage = require("jade").compileFile(__dirname+"/source/templates/downloads.jade"),
     fs=require("fs");
 
@@ -37,5 +38,10 @@ fs.writeFile(__dirname+"/docs/downloads/index.html",downloadspage({title:'downlo
 fs.writeFile(__dirname+"/docs/getStarted/index.html",startpage({title:'getStarted'}),function(err,data){
 	if (err) throw err;
 	console.log('The getStarted file has been saved!');
+	
+});	
+fs.writeFile(__dirname+"/docs/gettingStarted/index.html",gettingstartedpage({title:'gettingStarted'}),function(err,data){
+	if (err) throw err;
+	console.log('The gettingstartpage file has been saved!');
 	
 });	

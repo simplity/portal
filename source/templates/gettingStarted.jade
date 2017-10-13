@@ -1,0 +1,113 @@
+include header
+div.downloadsContainer
+  div.downloadsInnerContainer
+    div.downloadsHeader Getting Started
+    div.downloadsDesc You can get started with simplity in various ways.
+    div.line
+    div.releaseList
+      ul.releaseListItems
+        li Steps to create Simple Application
+        li Utilities
+        li Creating simplity application using archetype
+    div.releaseContainer
+      div.accordian 
+        div.accordianName Steps to create Simple Application
+      div.releaseInnerContainer
+        div.releaseList1 1. Get simplity kernel
+        div.line
+        div.stable For Maven users-
+        ul.codeoptions
+          li Downloads
+          li Copy code
+          li View output
+        div.box
+          div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
+        div.stable Plain Java-
+        ul.codeoptions
+          li Downloads
+          li Copy code
+          li View output
+        div.box
+          div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;/groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
+        div.releaseList1 2. Creating project
+        div.line
+        ul.creationSteps
+          li Create a new "Maven Project" in eclipse
+          li Configure web.xml to have the following entry
+            div
+              div.stable1    
+              ul.codeoptions1
+                li Downloads
+                li Copy code
+                li View output
+              div.boxmedium
+                  &lt;servlet&gt;</br>&lt;servlet-name&gt;SimplityStartup&lt;/servlet-name&gt;</br>&lt;servlet-class&gt;org.simplity.http.Startup&lt;/servlet-class&gt;</br>&lt;load-on-startup&gt;1&lt;/load-on-startup&gt;</br>&lt;/servlet&gt;</br>&lt;servlet&gt;</br>     &lt;servlet-name&gt;s&lt;/servlet-name&gt;</br>&lt;servlet-class&gt;org.simplity.http.Serve&lt;/servlet-class&gt;</br>&lt;/servlet&gt;</br>&lt;servlet-mapping&gt;</br>&lt;servlet-name&gt;s&lt;/servlet-name&gt;</br>&lt;url-pattern&gt;*._s&lt;/url-pattern&gt;</br> &lt;/servlet-mapping&gt;</br></br>
+                
+          li Other servlet mappings are:
+            ul
+              li
+                div.stable1 For Authentication
+                ul.codeoptions1
+                  li Downloads
+                  li Copy code
+                  li View output
+                div.boxmedium
+                  &lt;servlet&gt;</br>&lt;servlet-name&gt;i&lt;/servlet-name&gt;</br> &lt;servlet-class&gt;org.simplity.http.DefaultLogin&lt;/servlet-class&gt;</br>&lt;/servlet&gt;&lt;servlet&gt;</br>&lt;servlet-name&gt;o&lt;/servlet-name&gt;</br> &lt;servlet-class&gt;org.simplity.http.DefaultLogout&lt;/servlet-class&gt;</br>&lt;/servlet&gt;</br>&lt;servlet-mapping&gt;</br>&lt;servlet-name&gt;i&lt;/servlet-name&gt;</br> &lt;url-pattern&gt;*._i&lt;/url-pattern&gt;</br>&lt;/servlet-mapping&gt;</br>&lt;servlet-mapping&gt;</br>&lt;servlet-name&gt;o&lt;/servlet-name&gt;</br>&lt;url-pattern&gt;*._o&lt;/url-pattern&gt;</br>&lt;/servlet-mapping&gt;</br></br>
+              li 
+                div.stable1  For file upload/download  
+                ul.codeoptions1
+                  li Downloads
+                  li Copy code
+                  li View output
+                div.boxsmall
+                  &lt;servlet&gt;</br>&lt;servlet-name&gt;f&lt;/servlet-name&gt;</br> &lt;servlet-class&gt;org.simplity.http.Stream&lt;/servlet-class&gt;</br>&lt;/servlet&gt;</br>&lt;servlet-mapping&gt;</br>&lt;servlet-name&gt;f&lt;/servlet-name&gt;</br> &lt;url-pattern&gt;*._f&lt;/url-pattern&gt;</br>&lt;/servlet-mapping&gt;</br></br>
+          li Please make sure that the folder structure of comp as follows:
+          li Comp folder is where we will be adding our components
+          li Copy simplity folder under webapp folder. This has just one .js file that we are going to use on the client.
+        
+        div.releaseList1 3. Application Configuration
+        div.line
+        ul.creationSteps
+          li Create component folder structure under WEB-INF as follows:
+            ul
+              li
+                ul comp
+                  li dt
+                  li msg
+                  li rec
+                  li service
+                    ul
+                      li tp
+                  li sql
+          li Configure application.xml under WEB-INF/comp as follows.
+              div.boxsmall
+                &lt;?xml version="1.0" encoding="UTF-8"?&gt;</br>&lt;application</br>    xmlns="http://www.simplity.org/schema"    applicationId="HelloWorld"</br>    autoLoginUserId="100"</br>    dbVendor="oracle"</br>    dbDriverClassName="oracle.jdbc.OracleDriver"</br>    connectionString="database connection string"</br>    logSqls="true"&gt;</br>&lt;/application&gt;
+              ul
+                li
+                  li This is the root file of simplity which helps to configure various features of Simplity. Here <b>"applicationId"</b> is a mandatory field which represents the application name. applicationId should be a unique name for the application.
+                  li <b>NOTE:</b> To get more help, click ctrl + tab from the eclipse editor.
+          li Create Simplity record under WEB-INF/comp/rec as follows.
+              div.boxmedium
+                &lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;</br>&lt;record name="Employee" </br>    recordType="storage" </br>    tableName="EMPLOYEE" </br>    keyToBeGenerated="true" </br>    okToSelectAll="true" </br>    xmlns="http://www.simplity.org/schema"&gt; </br>    &lt;fields&gt; </br>    &lt;field columnName="EMPLOYEE_ID" dataType="_number" fieldType="primaryKey" name="employeeId"  sqlTypeName="INTEGER"/&gt;</br>    &lt;field columnName="EMPLOYEE_NAME" dataType="_text" fieldType="data" name="employeeName" sqlTypeName="VARCHAR"/&gt;</br>&lt;/fields&gt;</br>&lt;/record&gt;</br>
+              ul
+                li
+                  li Simplity records are kept under the comp/rec folder. This is the main part of data model. Data structures that are used as input to, or output from a service are modeled as records. Following are the fields of simplity record:
+                  li <b>name (mandatory field) </b>- name of the record or entity
+                  li <b>moduleName (optional field) </b>- sub-folder name inside rec folder. In this example(rec/login/user.xml) record name is user.xml and module name login.
+                  li <b>recordType (mandatory field) </b>- STORAGE (represents a row of a table being stored in an rdbms), VIEW (a view involving one or more storage records), STRUCTURE (record structure used by the application, but is not linked to any stored data).
+                  li <b>tableName (optional field) </b>- name of the db table, if recordType is STORAGE or VIEW.
+                  li <b>keyToBeGenerated (optional field) </b>- true/false (if any table column value to be generated automatically)
+                  li <b>okToSelectAll (optional field) </b>- true/false(set true to select all rows from the table)
+          li Create Simplity service under WEB-INF/comp/service/tp as follows.
+              div.boxlarge
+                &lt;?xml version="1.0" encoding="UTF-8"?&gt;</br>&lt;service name="saveEmployee" xmlns="http://www.simplity.org/schema"&gt;</br></br>&lt;inputData&gt;</br>    &lt;inputFields&gt;</br>&lt;inputField dataType="_text" name="employeeName"/&gt;</br>&lt;inputField dataType="number" name="employeeId"/&gt;</br>    &lt;inputFields&gt;</br>&lt;/inputData&gt;</br></br>&lt;actions&gt;</br></br>//perform save action   </br>&lt;save saveAction="add" recordName="employee"&gt;</br>//set output status</br>&lt;setValue fieldName="dbaction" fieldValue="Record saved successfully"&gt;&lt;/setValue&gt;</br></br>&lt;/actions&gt;</br>&lt;outputData fieldNames="dbaction"&gt;&lt;/outputData&gt;</br>&lt;/service&gt;</br>
+          
+          li Create client(helloworld.html) as follows.
+              div.boxlarge
+                &lt;!DOCTYPE html&gt;</br>&lt;html&gt;</br>&lt;head&gt;</br>   &lt;script type="text/javascript" src="js/simplity.js"&gt;&lt;/script&gt;</br>&lt;/head&gt;</br>&lt;body&gt;</br>    &lt;form id="empform"&gt;</br>        &lt;input name="employeeId" type="text" /&gt; </br>        &lt;input name="employeeName" type="text" /&gt;</br>        &lt;button onclick="saveEmployeeRecord()"&gt;Save&lt;/button&gt;</br>    &lt;/form&gt;</br>    &lt;script type="text/javascript"&gt;</br>        var saveEmployeeRecord = function(){</br>           var employeeId = document.getElementById("empform").employeeId.value); </br> var employeeName = document.getElementById("empform").employeeName.value); </br> var data = "{'employeeId':employeeId,'employeeName':employeeName}";</br> Simplity.getResponse("saveEmployee",data,onSuccess);</br>        }</br>        var onSuccess = function(json){</br>            console.log(json);</br>        }</br>    &lt;/script&gt;</br>&lt;/body&gt;</br>&lt;/html&gt;</br>
+                
+      div.accordian 
+        div.accordianName Utilities
+      div.accordian 
+        div.accordianName Creating simplity application using archetype
+include footer
