@@ -1,0 +1,54 @@
+include ../header
+div.downloadsContainer
+  div.downloadsInnerContainer
+    div.downloadsHeader Getting Started
+    div.downloadsDesc You can get started with simplity in various ways.
+    div.line
+    div.releaseContainer
+      div.accordian 
+        div.accordianName Steps to generate Simplity Records using Database schema
+      div.releaseInnerContainer
+        div.releaseList1 1. Get simplity kernel
+        div.line
+        div.stable For Maven users-
+        ul.codeoptions
+          li Downloads
+          li Copy code
+          li View output
+        div.box
+          div.dependency &lt;dependency&gt; </br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
+        div.stable Plain Java-
+        ul.codeoptions
+          li Downloads
+          li Copy code
+          li View output
+        div.box
+          div.dependency &lt;dependency&gt; </br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;org.simplity&lt;/groupId&gt; </br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
+        div.releaseList1 2. Get jdbc driver of your database 
+        div.line
+        div.stable H2 database used in this example
+        ul.codeoptions
+          li Downloads
+          li Copy code
+          li View output
+        div.box
+          div.dependency &lt;dependency&gt; </br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;com.h2database&lt;groupId&gt; </br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactIdId&gt;h2&lt;/artifactId&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;version&gt;1.3.171&lt;/version&gt;</br>&lt;/dependency&gt;
+        
+        div.releaseList1 3. Creating project
+        div.line
+        ul.creationSteps
+          li Create a new "Maven Project" in eclipse
+          li Configure pox.xml to have the following entry
+            div
+              div.stable1    
+              ul.codeoptions1
+                li Downloads
+                li Copy code
+                li View output
+              div.boxcustom
+                &lt;build&gt;</br>&nbsp;&nbsp;&lt;plugins&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;plugin&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;org.apache.torque&lt;/groupId&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;torque-maven-plugin&lt;/artifactId&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;version&gt;4.0&lt;/version&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;executions&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;execution&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;id&gt;generate-schema-from-jdbc&lt;/id&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;phase&gt;generate-test-sources&lt;/phase&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;goals&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;goal&gt;generate&lt;/goal&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/goals&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;configuration&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;packaging&gt;classpath&lt;/packaging&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;configPackage&gt;com.infosys.qreuse.torque.simplity&lt;/configPackage&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;newFileTargetDir&gt;target/generated-schema&lt;/newFileTargetDir&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;newFileTargetDirUsage&gt;none&lt;/newFileTargetDirUsage&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;options&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;torque.jdbc2schema.driver&gt;org.h2.Driver&lt;/torque.jdbc2schema.driver&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;torque.jdbc2schema.url&gt;jdbc:h2://&lt;host&gt;:&lt;port&gt;/&lt;database name&gt;&lt;/torque.jdbc2schema.url&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;torque.jdbc2schema.user&gt;username&lt;/torque.jdbc2schema.user&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;torque.jdbc2schema.password&gt;password&lt;/torque.jdbc2schema.password&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;torque.jdbc2schema.schema&gt;schema name&lt;/torque.jdbc2schema.schema&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/options&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/configuration&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/execution&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/executions&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;dependencies&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;dependency&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;com.h2database&lt;/groupId&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;h2&lt;/artifactId&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;version&gt;1.3.171&lt;/version&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/dependency&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;dependency&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;com.infosys.qreuse.torque.simplity&lt;/groupId&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;template&lt;/artifactId&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;version&gt;0.0.1&lt;/version&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/dependency&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/dependencies&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/plugin&gt;</br>&nbsp;&nbsp;&lt;/plugins&gt;</br>&lt;/build&gt;
+          
+          li To generate the records use the command "mvn test"
+          li Generated records are present under "target/generated-sources" folder.
+        
+include ../footer
