@@ -38,13 +38,13 @@ body {
   font-size: 26px;
   line-height: 40px;
   position: relative;
-  height: 678px;
+  height: 450px;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
 }
 .containerArt-1 {
-  height: 678px;
+  height: 450px;
   width: 100%;
   position: absolute;
   z-index: 1;
@@ -81,6 +81,7 @@ body {
   z-index: 1;
   left: 10%;
   position: absolute;
+  text-decoration-line: none;
 }
 .navItems {
   color: #fff;
