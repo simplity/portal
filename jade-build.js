@@ -6,6 +6,7 @@ var homepage = require("jade").compileFile(__dirname+"/source/templates/homepage
 	startpage = require("jade").compileFile(__dirname+"/source/templates/getStarted.jade"),
 	webappwithdbpage = require("jade").compileFile(__dirname+"/source/templates/getStarted/webappwithDb.jade"),
 	downloadspage = require("jade").compileFile(__dirname+"/source/templates/downloads.jade"),
+	compoServicepage = require("jade").compileFile(__dirname+"/source/templates/components/services.jade"),	
     fs=require("fs");
 
 fs.writeFile(__dirname+"/docs/index.html",homepage({title:'Home'}),function(err,data){
@@ -49,5 +50,11 @@ fs.writeFile(__dirname+"/docs/getStarted/index.html",startpage({title:'getStarte
 fs.writeFile(__dirname+"/docs/getStarted/webappwithDb/index.html",webappwithdbpage({title:'Web App with Database'}),function(err,data){
 	if (err) throw err;
 	console.log('The Web App with Database file has been saved!');
+	
+});	
+
+fs.writeFile(__dirname+"/docs/components/services/index.html",homepage({title:'Services'}),function(err,data){
+	if (err) throw err;
+	console.log('The home file has been saved!');
 	
 });	
