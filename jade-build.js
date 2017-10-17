@@ -5,6 +5,7 @@ var homepage = require("jade").compileFile(__dirname+"/source/templates/homepage
 	examplespage = require("jade").compileFile(__dirname+"/source/templates/examples.jade"),
 	startpage = require("jade").compileFile(__dirname+"/source/templates/getStarted.jade"),
 	webappwithdbpage = require("jade").compileFile(__dirname+"/source/templates/getStarted/webappwithDb.jade"),
+	recordgenerationpage = require("jade").compileFile(__dirname+"/source/templates/getStarted/recordGeneration.jade"),
 	downloadspage = require("jade").compileFile(__dirname+"/source/templates/downloads.jade"),
 	compoServicepage = require("jade").compileFile(__dirname+"/source/templates/components/services.jade"),	
     fs=require("fs");
@@ -52,9 +53,14 @@ fs.writeFile(__dirname+"/docs/getStarted/webappwithDb/index.html",webappwithdbpa
 	console.log('The Web App with Database file has been saved!');
 	
 });	
-
-fs.writeFile(__dirname+"/docs/components/services/index.html",homepage({title:'Services'}),function(err,data){
+fs.writeFile(__dirname+"/docs/components/services/index.html",compoServicepage({title:'Services'}),function(err,data){
 	if (err) throw err;
 	console.log('The home file has been saved!');
 	
 });	
+fs.writeFile(__dirname+"/docs/getStarted/recordGeneration/index.html",recordgenerationpage({title:'Simplity Record Generation'}),function(err,data){
+	if (err) throw err;
+	console.log('The Simplity Record Generation file has been saved!');
+	
+});	
+

@@ -228,6 +228,7 @@ a.navLinks:hover {
   text-align: center;
   position: relative;
   top: 10px;
+  display: block;
 }
 .componentDesc {
   color: #32325d;
@@ -1022,7 +1023,7 @@ a.navLinks:hover {
   color: #55556a;
   font-family: "Segoe UI";
   font-size: 16px;
-  margin-left: -20px;
+  margin-left: 20px;
   margin-right: auto;
   padding-top: 20px;
   padding-left: 20px;
