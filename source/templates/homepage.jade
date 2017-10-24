@@ -4,30 +4,26 @@ div.container
     div.relative-2
       div.banner-1 Simplity
       div.banner-2 A set of APIs/framework for typical transaction processing systems
-    div.relative-3
-      div.bannerButtonContainer
-        div.bannerButton-1
-          div.bannerButtonText-1 GET STARTED
-        div.bannerButton-2
-          div.bannerButtonText-2 DOCUMENTATION (V1 RELEASE)
   div.containerArt-2  
 div.componentContainer
   div.componentsHeader Components of simplity
-  div.componentsImages
-    img.serviceImg(src= "/portal/images/service.png")
-    img.applicationImg(src= "/portal/images/application.png")
-    img.dataTypesImg(src= "/portal/images/dataTypes.png")
-    img.recordsImg(src= "/portal/images/records.png")
-  div.componentsBanner
-    div.service Service
-    div.application Application
-    div.dataTypes Data Types
-    div.records Records
-  div.componentsDescription
-    div.serviceDesc Component which helps in transaction processing
-    div.applicationDesc Helps in configuring the application
-    div.dataTypesDesc Defines the restrictions on the values
-    div.recordsDesc A record helps us in implementing the model
+  div.componentPartition
+     img.componentImg(src= "/portal/images/service.png")
+     a.component(href="/portal/components/services") Services
+     div.componentDesc Component which helps in transaction processing
+  div.componentPartition
+    img.componentImg(src= "/portal/images/application.png")
+    div.component Application
+    div.componentDesc Helps in configuring the application parameters
+  div.componentPartition
+    img.componentImg(src= "/portal/images/dataTypes.png")
+    div.component Data Types
+    div.componentDesc Defines the restrictions on the values
+  div.componentPartition
+    img.componentImg(src= "/portal/images/records.png")
+    div.component Records
+    div.componentDesc A record helps us in implementing the model
+   
 div.loginContainer
   div.loginContent
     div.loginBanner Creates beautiful login experiences fast
