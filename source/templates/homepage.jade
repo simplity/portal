@@ -1,4 +1,5 @@
 include header
+script(src='js/home.js') 
 div.container
   div.containerArt-1
     div.relative-2
@@ -7,23 +8,34 @@ div.container
   div.containerArt-2  
 div.componentContainer
   div.componentsHeader Components of simplity
-  div.componentPartition
-     img.componentImg(src= "/portal/images/service.png")
-     a.component(href="/portal/components/services") Services
-     div.componentDesc Component which helps in transaction processing
-  div.componentPartition
-    img.componentImg(src= "/portal/images/application.png")
-    div.component Application
-    div.componentDesc Helps in configuring the application parameters
-  div.componentPartition
-    img.componentImg(src= "/portal/images/dataTypes.png")
-    div.component Data Types
-    div.componentDesc Defines the restrictions on the values
-  div.componentPartition
-    img.componentImg(src= "/portal/images/records.png")
-    div.component Records
-    div.componentDesc A record helps us in implementing the model
-   
+  div.componentsOuterCar
+    button.componentsArrow(onclick="moveLeft()") <
+    div.componentsInnerCar
+      div.componentPartition
+         img.componentImg(src= "/portal/images/service.png")
+         a.component(href="/portal/components/services") Services
+         div.componentDesc Component which helps in transaction processing
+      div.componentPartition
+        img.componentImg(src= "/portal/images/application.png")
+        div.component Application
+        div.componentDesc Helps in configuring the application parameters
+      div.componentPartition
+        img.componentImg(src= "/portal/images/dataTypes.png")
+        div.component Data Types
+        div.componentDesc Defines the restrictions on the values
+      div.componentPartition
+        img.componentImg(src= "/portal/images/records.png")
+        div.component Records
+        div.componentDesc A record helps us in implementing the model
+      div.componentPartition.hidden
+        img.componentImg(src= "/portal/images/records.png")
+        div.component Records1
+        div.componentDesc A record helps us in implementing the model
+      div.componentPartition.hidden
+        img.componentImg(src= "/portal/images/records.png")
+        div.component Records2
+        div.componentDesc A record helps us in implementing the model
+    button.componentsArrow(onclick="moveRight()") >
 div.loginContainer
   div.loginContent
     div.loginBanner Creates beautiful login experiences fast
