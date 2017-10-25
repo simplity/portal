@@ -7,6 +7,7 @@ var homepage = require("jade").compileFile(__dirname+"/source/templates/homepage
 	webappwithdbpage = require("jade").compileFile(__dirname+"/source/templates/getStarted/webappwithDb.jade"),
 	recordgenerationpage = require("jade").compileFile(__dirname+"/source/templates/getStarted/recordGeneration.jade"),
 	downloadspage = require("jade").compileFile(__dirname+"/source/templates/downloads.jade"),
+	examplesDescpage = require("jade").compileFile(__dirname+"/source/templates/examplesDesc.jade"),
 	compoServicepage = require("jade").compileFile(__dirname+"/source/templates/components/services.jade"),	
     fs=require("fs");
 
@@ -46,6 +47,11 @@ fs.writeFile(__dirname+"/docs/downloads/index.html",downloadspage({title:'downlo
 fs.writeFile(__dirname+"/docs/getStarted/index.html",startpage({title:'getStarted'}),function(err,data){
 	if (err) throw err;
 	console.log('The getStarted file has been saved!');
+	
+});	
+fs.writeFile(__dirname+"/docs/examplesDesc/index.html",examplesDescpage({title:'examplesDescpage'}),function(err,data){
+	if (err) throw err;
+	console.log('The examplesDesc file has been saved!');
 	
 });	
 fs.writeFile(__dirname+"/docs/getStarted/webappwithDb/index.html",webappwithdbpage({title:'Web App with Database'}),function(err,data){
