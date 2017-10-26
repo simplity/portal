@@ -16,30 +16,34 @@ div.componentContainer
          a.component(href="/portal/components/services") Services
          div.componentDesc Component which helps in transaction processing
       div.componentPartition
-        img.componentImg(src= "/portal/images/application.png")
-        div.component Application
-        div.componentDesc Helps in configuring the application parameters
-      div.componentPartition
         img.componentImg(src= "/portal/images/dataTypes.png")
-        div.component Data Types
+        a.component(href="/portal/components/datatypes") Data Types
         div.componentDesc Defines the restrictions on the values
       div.componentPartition
         img.componentImg(src= "/portal/images/records.png")
-        div.component Records
+        a.component(href="/portal/components/records") Records
+        div.componentDesc A record helps us in implementing the model
+      div.componentPartition
+        img.componentImg(src= "/portal/images/messages.png")
+        a.component(href="/portal/components/messages") Messages
+        div.componentDesc Helps in configuring the application parameters
+      div.componentPartition.hidden
+        img.componentImg(src= "/portal/images/sql.png")
+        a.component(href="/portal/components/sql") SQL
         div.componentDesc A record helps us in implementing the model
       div.componentPartition.hidden
-        img.componentImg(src= "/portal/images/records.png")
-        div.component Records1
-        div.componentDesc A record helps us in implementing the model
+        img.componentImg(src= "/portal/images/batchProcessor.png")
+        a.component(href="/portal/components/batch") Batch
+        div.componentDesc A record helps us in implementing the model      
       div.componentPartition.hidden
-        img.componentImg(src= "/portal/images/records.png")
-        div.component Records2
+        img.componentImg(src= "/portal/images/tests.png")
+        a.component(href="/portal/components/tests") Tests
         div.componentDesc A record helps us in implementing the model
     button.componentsArrow(onclick="moveRight()") >
 div.loginContainer
   div.loginContent
-    div.loginBanner Creates beautiful login experiences fast
-    div.loginDesc Use login function to login to Simplity application. This API makes a call to your servers designated login service.
+    div.loginBanner OpenApi spec to service in one step
+    div.loginDesc OpenApi spec configuration directly translates to service addressability, data formats, auth etc.
     div.loginButtonsBanner
       div.loginBannerButton-1
         div.loginBannerButtonText-1 VIEW EXAMPLE
@@ -48,7 +52,7 @@ div.loginContainer
       div.loginBannerButton-3
         div.loginBannerButtonText-2 VIEW DOCUMENTATION
   div.loginImage
-    img(src= "/portal/images/login.png")
+    img(src= "/portal/images/openapi.png")
 div.flyContainer
   div.flyInternalContainer
     div.flyImage
