@@ -1,76 +1,50 @@
 include header
-div.downloadsContainer
-  div.downloadsInnerContainer
-    div.downloadsHeader Getting Started
-    div.downloadsDesc You can get started with simplity in various ways.
-    div.line
-    div.releaseList
-      ul.releaseListItems
-        li Steps to create Simple Application
-        li Utilities
-        li Creating simplity application using archetype
-    div.releaseContainer
-      div.accordian 
-        div.accordianName Steps to create Simple Application
-      div.releaseInnerContainer
-        div.releaseList1 1. Get simplity kernel
-        div.line
-        div.stable For Maven users-
-        ul.codeoptions
-          li Downloads
-          li Copy code
-          li View output
-        div.box
-          div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
-        div.stable Plain Java-
-        ul.codeoptions
-          li Downloads
-          li Copy code
-          li View output
-        div.box
-          div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;/groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
-        div.releaseList1 2. Creating project
-        div.line
-        ul.creationSteps
-          li Create a new "Maven Project" in eclipse
-          li Configure web.xml to have the following entry
-            div
-              div.stable1    
-              ul.codeoptions1
-                li Downloads
-                li Copy code
-                li View output
-              div.box
-                div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
-          li Other servlet mappings are:
-            ul
-              li
-                div.stable1 For Authentication
-                ul.codeoptions1
-                  li Downloads
-                  li Copy code
-                  li View output
-                div.box
-                  div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
-              li 
-                div.stable1  For file upload/download  
-                ul.codeoptions1
-                  li Downloads
-                  li Copy code
-                  li View output
-                div.box
-                  div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
-          li Please make sure that the folder structure of comp as follows:
-          li Comp folder is where we will be adding our components
-          li Copy simplity folder under webapp folder. This has just one .js file that we are going to use on the client.
-        
-        div.releaseList1 3. Application Configuration
-        div.line
-        ul.creationSteps
-          li Configure application.xml under WEB-INF as follows:
-        
-      div.accordian 
-        div.accordianName Utilities
-      div.accordian 
-        div.accordianName Creating simplity application using archetype
+div.examplesContainer
+  div.examplesHeader Get Started
+  div.examplesListContainer
+    ul.examplesRow
+      li 
+         div.listContainer
+            div.exampleName Plain Web Services
+            div.descSeparator
+            div.exampleDesc This includes webservice development with in-build simplity web service technology.
+            div.exampleLink
+               a(href="/portal/getStarted/plainWebService/index.html") Learn more
+      li 
+         div.listContainer
+            div.exampleName WebServices with Open API
+            div.descSeparator
+            div.exampleDesc Implementation of Web Services using Swagger JSON.
+            div.exampleLink
+               a(href="/portal/getStarted/webServicesOpenApi/index.html") Learn more
+      li 
+         div.listContainer
+            div.exampleName Simplity Service with Java
+            div.descSeparator
+            div.exampleDesc Invoke Simplity service in java program.
+            div.exampleLink
+               a(href="/portal/getStarted/simplityServiceWithJava/index.html") Learn more
+      li 
+         div.listContainer
+            div.exampleName Simplity - SpringMVC
+            div.descSeparator
+            div.exampleDesc Simplity with Spring MVC.
+            div.exampleLink
+               a(href="/portal/getStarted/simplitySpringMvc/index.html") Learn more
+    ul.examplesRow
+      li 
+         div.listContainer
+            div.exampleName Simplity - SpringBoot
+            div.descSeparator
+            div.exampleDesc Simplity with Spring Boot.
+            div.exampleLink
+               a(href="/portal/getStarted/simplitySpringBoot/index.html") Learn more
+      li 
+         div.listContainer
+            div.exampleName Simplity Batch
+            div.descSeparator
+            div.exampleDesc Simplity with Batch.
+            div.exampleLink
+               a(href="/portal/getStarted/simplityBatch/index.html") Learn more
+
 include footer
