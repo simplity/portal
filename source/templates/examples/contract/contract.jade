@@ -1,0 +1,33 @@
+include ../../header
+script (src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css")
+div.examplesDesccontainer
+  div.examplesContainer
+    h2 Contract Maintenance
+    div.plainText A simple web page where user you can get, filter, add, update the contract details along with its related children data(bench, storage, location, roles). This example involves #[a.hyperLink(href="http://microservices.io/") Micro Services] implementation with #[a.hyperLink(href="https://swagger.io/") Swagger OpenAPI Specification] and #[a.hyperLink(href="https://auth0.com/blog/beating-json-performance-with-protobuf/") Protobuff ] as the format to interchange the data between the services.
+    h3 Pre-requisites
+    ul.ulStyle
+      li JDK 1.7 or later
+      li Maven 3.0+
+      li Apache Tomcat 1.7 or later
+    h3.padding How to run this application
+    div.plainText This application has 3 modules. Each module is using different environment to start the application.Following are the list of modules under this application: 
+    ul.ulStyle
+      li using #[a.hyperLink(href="https://projects.spring.io/spring-boot/") Springboot]
+      li using #[a.hyperLink(href="https://javaee.github.io/grizzly/") Grizzly]
+      li Web application with #[a.hyperLink(href="http://tomcat.apache.org/") Tomcat]
+    div.plainText Build and run the jars using maven.Once application starts running check the functionality of each module with these URLs:
+      div #[div.textbox #[a.hyperLink(href="http://localhost:8080/index.html") #[code localhost:8080/index.html ]]] #[span to access spring boot application]
+      div #[div.textbox #[a.hyperLink(href="http://localhost:8070/webapp/index.html") #[code localhost:8070/webapp/index.html]]] #[span to access grizzly application]
+      div #[div.textbox #[a.hyperLink(href="http://localhost:8080/webapp/") #[code localhost:8080/webapp/]]] #[span to access web application]
+    div.plainText Spring boot module
+      div #[div.textbox #[code src/main/java/org/simplity/examples/contractDB/springBoot/App.java]] #[span is the entry class to run Springboot application]
+      div #[div.textbox #[code sf]]
+    div #[div.textbox #[code src/main/java/org/simplity/examples/App.java]] #[span is the entry class to run  application with grizzly server]
+    h3.padding Services
+    div #[div.textbox #[code contractCreate]] #[span inserts new contract entry into DB along with its children]
+    div #[div.textbox #[code contractUpdate]] #[span updates the contract details]
+    div #[div.textbox #[code contractFind]] #[span fetches all the contract details]
+    div #[div.textbox #[code contractGet]] #[span gets the contract details for the provided contractID]
+    div #[div.textbox #[code contractFilter]] #[span filters the contracts based on the search criteria]
+    
+include ../../footer

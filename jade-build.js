@@ -2,13 +2,15 @@ var homepage = require("jade").compileFile(__dirname+"/source/templates/homepage
     aboutpage = require("jade").compileFile(__dirname+"/source/templates/about.jade"),
 	guidepage = require("jade").compileFile(__dirname+"/source/templates/guide.jade"),
 	docspage = require("jade").compileFile(__dirname+"/source/templates/docs.jade"),
-	examplespage = require("jade").compileFile(__dirname+"/source/templates/examples.jade"),
+	examplespage = require("jade").compileFile(__dirname+"/source/templates/examples/examples.jade"),
 	startpage = require("jade").compileFile(__dirname+"/source/templates/getStarted.jade"),
 	webappwithdbpage = require("jade").compileFile(__dirname+"/source/templates/getStarted/webappwithDb.jade"),
 	recordgenerationpage = require("jade").compileFile(__dirname+"/source/templates/getStarted/recordGeneration.jade"),
 	downloadspage = require("jade").compileFile(__dirname+"/source/templates/downloads.jade"),
-	examplesDescpage1 = require("jade").compileFile(__dirname+"/source/templates/mcHelloWorld.jade"),
-	examplesDescpage2 = require("jade").compileFile(__dirname+"/source/templates/petClinic.jade"),
+	examplesDescpage1 = require("jade").compileFile(__dirname+"/source/templates/examples/mcHelloWorld/mcHelloWorld.jade"),
+	examplesDescpage2 = require("jade").compileFile(__dirname+"/source/templates/examples/petstore/petClinic.jade"),
+	examplesDescpage3 = require("jade").compileFile(__dirname+"/source/templates/examples/todos/todos.jade"),
+	examplesDescpage4 = require("jade").compileFile(__dirname+"/source/templates/examples/contract/contract.jade"),
 	compoServicepage = require("jade").compileFile(__dirname+"/source/templates/components/services.jade"),	
     fs=require("fs");
 
@@ -50,14 +52,24 @@ fs.writeFile(__dirname+"/docs/getStarted/index.html",startpage({title:'getStarte
 	console.log('The getStarted file has been saved!');
 	
 });	
-fs.writeFile(__dirname+"/docs/examplesDesc/mcHelloWorld.html",examplesDescpage1({title:'helloworld'}),function(err,data){
+fs.writeFile(__dirname+"/docs/examples/mcHelloWorld/index.html",examplesDescpage1({title:'helloworld'}),function(err,data){
 	if (err) throw err;
 	console.log('The mcHelloWorld file has been saved!');
 	
 });	
-fs.writeFile(__dirname+"/docs/examplesDesc/petClinic.html",examplesDescpage2({title:'petclinic'}),function(err,data){
+fs.writeFile(__dirname+"/docs/examples/petstore/index.html",examplesDescpage2({title:'Pet Store'}),function(err,data){
 	if (err) throw err;
 	console.log('The petClinic file has been saved!');
+	
+});	
+fs.writeFile(__dirname+"/docs/examples/todos/index.html",examplesDescpage3({title:'To do'}),function(err,data){
+	if (err) throw err;
+	console.log('The todos file has been saved!');
+	
+});	
+fs.writeFile(__dirname+"/docs/examples/contract/index.html",examplesDescpage4({title:'Contract'}),function(err,data){
+	if (err) throw err;
+	console.log('The contract file has been saved!');
 	
 });	
 fs.writeFile(__dirname+"/docs/getStarted/webappwithDb/index.html",webappwithdbpage({title:'Web App with Database'}),function(err,data){

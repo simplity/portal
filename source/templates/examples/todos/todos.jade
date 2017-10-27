@@ -1,0 +1,43 @@
+include ../../header
+script (src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css")
+div.examplesDesccontainer
+  div.examplesContainer
+    h2 petClinic
+    div.plainText A web-application to view,add and edit the details of veterinarians, pet owners,pets etc.
+    h3 Pre-requisites
+    ul.ulStyle
+      li JDK 1.7 or later
+      li Maven 3.0+
+      li Apache Tomcat 1.7 or later
+    h3.padding How to run this application
+    ul.ulStyle
+      li Download and unzip the repository for this example or clone it using Git:</br> 
+        div.textbox.textboxBorder git clone 
+          a.hyperLink(href="https://github.com/simplity/examples.git") https://github.com/simplity/examples.git
+      li cd into petclinic
+      li build the war file using maven:
+        br
+        div.textbox.textboxBorder mvn clean install
+        span installs and run the scripts of embedded DB and generates the war file in the target folder of the application
+      li deploy the generated war(petstore.war) in Tomcat server and start the server.
+    div.plainText Wait for the server to start, go to the browser and try it out:</br>
+      div.textbox.textboxBorder
+        a.hyperLink(href="http://localhost:8080/petstore") http://localhost:8080/petstore
+      br
+    div.plainText You can see the petstore page where you can find the list of veterinarians and also search for a particular pet owner and edit it.
+    div  FindOwners tab allow you to search for owner/owners and also can add a new owner details
+    h3.padding Services
+    div #[div.textbox filterOwners] #[span filters all the owners along with the petDetails for each owner based on the input search text]
+    div #[div.textbox filterOwnersJava] #[span It invokes java class which performs DB operations to filter owners]
+    h3.padding On-the-fly Services
+    div.plainText #[a.hyperLink(href="https://github.com/simplity/simplity/wiki/On-the-fly-Services") Simplity on-the-fly services] can also be used to achieve the same functionality as above without writing any service.
+    div #[div.textbox filter_owners] #[span filters all the owners based on the input search text]
+    div #[div.textbox get_owners] #[span list of all the owners]
+    div #[div.textbox save_owners] #[span add/updates the owner details based on the existence of primary key in the corresponding table]
+    div #[div.textbox filter_vets] #[span filters/list of all the veterinarians based on the input search text]
+    div #[div.textbox save_visits] #[span add/updates the pet visit details]
+    div #[div.textbox get_petDetails] #[span list of all the pet details]
+    div #[div.textbox save_pets] #[span add/updates the pet details]
+    div #[div.textbox list_petTypes] #[span list of all the pet types]
+
+include ../../footer

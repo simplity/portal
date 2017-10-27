@@ -1,13 +1,8 @@
-include header
+include ../../header
 div.examplesDesccontainer
   div.examplesContainer
-    h2.padding petClinic
-    div.plainText A web-application to view,add and edit the details of veterinarians, pet owners,pets etc.
-    h3.padding Pre-requisites
-    ul.ulStyle
-      li JDK 1.7 or later
-      li Maven 3.0+
-      li Apache Tomcat 1.7 or later
+    h2.padding mcHelloWorld
+    div.plainText This example is a simple java application which default run on '8081' port which you can configure in the application's Main class. #[a.hyperLink(href="https://simplity.github.io/simplity/apidocs/org/simplity/http/Serve.html") org.simplity.http.Serve] is the default servlet of simplity to deliver the services. In this example you can see how to add service and send back the response to the client.
     h3.padding How to run this application
     ul.ulStyle
       li Download and unzip the repository for this example or clone it using Git:</br> 
@@ -25,4 +20,4 @@ div.examplesDesccontainer
     div.plainText In response to this request, you will see a JSON response sent by service "helloworld", representing a greeting, that looks something like this:</br>
       div.textbox.textboxBorder {"hello":"Hello World! from simplity","_messages":[]}
     div.plainText Try writing your own services in comp/service/tp folder of the application and call it using the above url with corresponding service name.
-include footer
+include ../../footer
