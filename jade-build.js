@@ -10,6 +10,7 @@ var homepage = require("jade").compileFile(__dirname+"/source/templates/homepage
 	simplityservicewithjavapage = require("jade").compileFile(__dirname+"/source/templates/getStarted/simplityServiceWithJava.jade"),
 	simplityspringmvcpage = require("jade").compileFile(__dirname+"/source/templates/getStarted/simplitySpringMvc.jade"),
 	simplityspringbootpage = require("jade").compileFile(__dirname+"/source/templates/getStarted/simplitySpringBoot.jade"),
+	simplitygrizzlyjettypage = require("jade").compileFile(__dirname+"/source/templates/getStarted/simplityGrizzlyJetty.jade"),
 	simplitybatchpage = require("jade").compileFile(__dirname+"/source/templates/getStarted/simplityBatch.jade"),
 	webappwithdbpage = require("jade").compileFile(__dirname+"/source/templates/getStarted/webappwithDb.jade"),
 	recordgenerationpage = require("jade").compileFile(__dirname+"/source/templates/getStarted/recordGeneration.jade"),
@@ -69,6 +70,10 @@ fs.writeFile(__dirname+"/docs/getStarted/simplitySpringMvc/index.html",simplitys
 fs.writeFile(__dirname+"/docs/getStarted/simplitySpringBoot/index.html",simplityspringbootpage({title:'simplitySpringBoot'}),function(err,data){
 	if (err) throw err;
 	console.log('The simplitySpringBoot file has been saved!');	
+});
+fs.writeFile(__dirname+"/docs/getStarted/simplityGrizzlyJetty/index.html",simplitygrizzlyjettypage({title:'simplityGrizzlyJetty'}),function(err,data){
+	if (err) throw err;
+	console.log('The simplityGrizzlyJetty file has been saved!');	
 });
 fs.writeFile(__dirname+"/docs/getStarted/simplityBatch/index.html",simplitybatchpage({title:'simplityBatch'}),function(err,data){
 	if (err) throw err;
