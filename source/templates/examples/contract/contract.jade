@@ -19,10 +19,28 @@ div.examplesDesccontainer
       div #[div.textbox #[a.hyperLink(href="http://localhost:8080/index.html") #[code localhost:8080/index.html ]]] #[span to access spring boot application]
       div #[div.textbox #[a.hyperLink(href="http://localhost:8070/webapp/index.html") #[code localhost:8070/webapp/index.html]]] #[span to access grizzly application]
       div #[div.textbox #[a.hyperLink(href="http://localhost:8080/webapp/") #[code localhost:8080/webapp/]]] #[span to access web application]
-    div.plainText Spring boot module
-      div #[div.textbox #[code src/main/java/org/simplity/examples/contractDB/springBoot/App.java]] #[span is the entry class to run Springboot application]
-      div #[div.textbox #[code sf]]
+    div #[div.textbox #[code src/main/java/org/simplity/examples/contractDB/springBoot/App.java]] #[span is the entry class to run Springboot application]
     div #[div.textbox #[code src/main/java/org/simplity/examples/App.java]] #[span is the entry class to run  application with grizzly server]
+    div.plainText All the 3 modules will open a common web-page where you have options to perform different operations.Refer below to know how different buttons work.
+      table
+        tr
+          th button
+          th function
+        tr
+          td Create Contract
+          td Inserts new contract into DB with a configured dummy data in index.js.
+        tr
+          td Update Contract
+          td Updates the contract details in DB with a configured dummy data in index.js.
+        tr
+          td Find Contract
+          td Displays all the contracts.
+        tr
+          td Filter Contracts
+          td enter the search query in the text-box provided and click on this button. Displays the filtered output for given search criteria. #[br] Query should be in the following format #[div.textbox colName1=value1&colName2=value2] and so on
+        tr
+          td Get Contract
+          td Enter a contract ID in the provided text-box and click on this button to get the details of this contract ID.
     h3.padding Services
     div #[div.textbox #[code contractCreate]] #[span inserts new contract entry into DB along with its children]
     div #[div.textbox #[code contractUpdate]] #[span updates the contract details]

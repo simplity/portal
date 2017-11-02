@@ -714,47 +714,18 @@ a.navLinks:hover {
   width: 80%;
   margin-right: auto;
   margin-left: auto;
+  height: 100px;
 }
-.footerCol {
-  vertical-align: top;
-  display: inline-block;
-  width: 25%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-  height: 250px;
-  color: #b6cbe6;
-  font-family: "Open Sans";
-  font-size: 14px;
-  font-weight: bold;
-}
-.quickNavigation1 {
-  margin-top: 25px;
-  margin-left: 20px;
-}
-.quickNavigation {
-  margin-top: 25px;
+.footerItems {
+  position: relative;
+  width: 100%;
   list-style-type: none;
 }
-.quickNavigation li {
-  margin-bottom: 5px;
-}
-.quickNavigation1 li {
-  margin-bottom: 5px;
-  left: 2%;
-}
-.copyRightContainer {
-  width: 100%;
-  font-family: OpenSans;
-  font-size: 14px;
-  background-color: #1f4e64;
-  bottom: 0px;
-}
-.copyRightText {
-  color: #fff;
-  padding: 10px;
-  opacity: 0.5;
-  text-align: center;
+.footerItems li {
+  display: inline-block;
+  margin: 10px;
+  height: 11px;
+  width: 14%;
 }
 .featuresHeader {
   height: 34px;
@@ -1177,4 +1148,18 @@ a.navLinks:hover {
 .padding {
   padding-bottom: 20px;
   padding-top: 20px;
+}
+table {
+  border: 1px #000 solid;
+  border-collapse: collapse;
+}
+tr,
+th,
+td {
+  border: 1px #000 solid;
+  padding: 5px;
+}
+td:nth-child(1) {
+  width: 20%;
+  text-align: center;
 }
