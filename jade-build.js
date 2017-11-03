@@ -19,6 +19,7 @@ var homepage = require("jade").compileFile(__dirname+"/source/templates/homepage
 	examplesDescpage2 = require("jade").compileFile(__dirname+"/source/templates/examples/petstore/petClinic.jade"),
 	examplesDescpage3 = require("jade").compileFile(__dirname+"/source/templates/examples/todos/todos.jade"),
 	examplesDescpage4 = require("jade").compileFile(__dirname+"/source/templates/examples/contract/contract.jade"),
+	examplesDescpage5 = require("jade").compileFile(__dirname+"/source/templates/examples/springInt/springInt.jade"),
 	compoServicepage = require("jade").compileFile(__dirname+"/source/templates/components/services.jade"),	
     fs=require("fs");
 
@@ -79,7 +80,7 @@ fs.writeFile(__dirname+"/docs/getStarted/simplityBatch/index.html",simplitybatch
 	if (err) throw err;
 	console.log('The simplityBatch file has been saved!');	
 });
-fs.writeFile(__dirname+"/docs/examplesDesc/mcHelloWorld.html",examplesDescpage1({title:'helloworld'}),function(err,data){
+fs.writeFile(__dirname+"/docs/examples/mcHelloWorld.html",examplesDescpage1({title:'helloworld'}),function(err,data){
 	if (err) throw err;
 	console.log('The mcHelloWorld file has been saved!');	
 });	
@@ -93,6 +94,10 @@ fs.writeFile(__dirname+"/docs/examples/todos/index.html",examplesDescpage3({titl
 	console.log('The todos file has been saved!');	
 });	
 fs.writeFile(__dirname+"/docs/examples/contract/index.html",examplesDescpage4({title:'Contract'}),function(err,data){
+	if (err) throw err;
+	console.log('The contract file has been saved!');
+});
+fs.writeFile(__dirname+"/docs/examples/springInt/index.html",examplesDescpage5({title:'Spring Integration'}),function(err,data){
 	if (err) throw err;
 	console.log('The contract file has been saved!');
 });

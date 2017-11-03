@@ -9,14 +9,20 @@ div.examplesDesccontainer
       li JDK 1.7 or later
       li Maven 3.0+
       li Apache ActiveMQ
-    h3.padding How to run this application
+    h3 How to run this application
+    ul.ulStyle
+      li Find the source code for this project at 
+        div.textbox 
+          a.hyperLink(href="https://github.com/simplity/examples/tree/master/petclinic") https://github.com/simplity/examples/tree/master/petclinic
     div.plainText This application has 4 modules. All modules should be running to start the application.Following are the list of modules under this application: 
     ul.ulStyle
       li #[b activeMQ] - starts the Apache ActiveMQ server 
       li #[b todoService] - handles the requests to add/update/delete and write the data to JMS. 
       li #[b todoViewService] - handles the request to get data from DB. This service keeps listening to JMS and performs the CRUD operations on DB with the consumed data. 
       li #[b todosUI] -  provides UI to perform all the actions.
-    div.plainText Build and run the jars using maven.Once the services are up and running visit  #[a.hyperLink(href="http://localhost:8083/index.html") localhost:8083/index.html] where you'll see the list of all the to-do items.
+    div.plainText Build and run the jars using maven.Once the services are up and running visit 
+      a.hyperLink(href="http://localhost:8083/index.html") http://localhost:8083/index.html
+      span  where you'll see the list of all the to-do items.
     div.textbox.textboxBorder All the configurations related to DB and JMS are done in application.xml file.
     h3.padding Services
     div #[div.textbox #[code addTodo, updateTodo, deleteTodo]] #[span writes the to-do details along with the corresponding action to the configured JMS queue.]
