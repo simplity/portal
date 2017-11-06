@@ -1,76 +1,365 @@
 include ../header
 div.downloadsContainer
   div.downloadsInnerContainer
-    div.downloadsHeader Getting Started
-    div.downloadsDesc You can get started with simplity in various ways.
-    div.line
-    div.releaseList
-      ul.releaseListItems
-        li Steps to create Simple Application
-        li Utilities
-        li Creating simplity application using archetype
-    div.releaseContainer
-      div.accordian 
-        div.accordianName Steps to create Simple Application
-      div.releaseInnerContainer
-        div.releaseList1 1. Get simplity kernel
-        div.line
-        div.stable For Maven users-
-        ul.codeoptions
-          li Downloads
-          li Copy code
-          li View output
-        div.box
-          div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
-        div.stable Plain Java-
-        ul.codeoptions
-          li Downloads
-          li Copy code
-          li View output
-        div.box
-          div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;/groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
-        div.releaseList1 2. Creating project
-        div.line
-        ul.creationSteps
-          li Create a new "Maven Project" in eclipse
-          li Configure web.xml to have the following entry
-            div
-              div.stable1    
-              ul.codeoptions1
-                li Downloads
-                li Copy code
-                li View output
-              div.box
-                div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
-          li Other servlet mappings are:
-            ul
-              li
-                div.stable1 For Authentication
-                ul.codeoptions1
-                  li Downloads
-                  li Copy code
-                  li View output
-                div.box
-                  div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
-              li 
-                div.stable1  For file upload/download  
-                ul.codeoptions1
-                  li Downloads
-                  li Copy code
-                  li View output
-                div.box
-                  div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
-          li Please make sure that the folder structure of comp as follows:
-          li Comp folder is where we will be adding our components
-          li Copy simplity folder under webapp folder. This has just one .js file that we are going to use on the client.
-        
-        div.releaseList1 3. Application Configuration
-        div.line
-        ul.creationSteps
-          li Configure application.xml under WEB-INF as follows:
-        
-      div.accordian 
-        div.accordianName Utilities
-      div.accordian 
-        div.accordianName Creating simplity application using archetype
+    div.downloadsHeader Tests
+    div.downloadsDesc TestRun is the component to run the test-cases. Essentially we define a sequence of test cases that are run in that order .  
+    div.downloadsDesc Tests are organized in one or more files under test/ folder. Attributes of testrun are:
+    br
+    table
+       colgroup
+           col
+           col
+           col
+         tbody
+           tr
+             th
+               p Attribute name
+             th
+               p Required?
+             th
+               p Description
+           tr
+             td
+               p testName
+             td
+               p yes
+             td
+               p Unique name within a module.
+           tr
+             td
+               p moduleName
+             td
+               p no
+             td
+               p
+                 | Should match the folder structure under which this component is saved. If a.b.c is the published name of this test then module name is a.b, test name is c, and the component is saved as /a/b/c.xml  under the root folder meant for tests (/test/).
+    br
+    h3 TestCase
+    div.downloadsDesc TestCases make up a TestRun.
+    br
+    table
+          colgroup
+            col
+            col
+            col
+          tbody
+            tr
+              th
+                p Attribute name
+              th
+                p Required?
+              th
+                p Description
+            tr
+              td
+                p testCaseName
+              td
+                p yes
+              td
+                p unique name given to this test case.
+            tr
+              td
+                p serviceName
+              td
+                p yes
+              td
+                p service to be tested.
+            tr
+              td
+                p description
+              td
+                p no
+              td
+                p description for the test case.
+            tr
+              td
+                p inputJson
+              td
+                p no
+              td
+                p In case you do not want to specify individual field values but provide a ready string that is to be provided as request pay-load to the service. 
+            tr
+              td
+                p inputFields
+              td
+                p no
+              td
+                p represents fields to be provided as input to a service
+                p
+                  | refer to attributes of #[a.hyperLink(href="#inputfield") InputField]
+            tr
+              td
+                p inputItems
+              td
+                p no
+              td
+                p Specify a qualified attribute to be used to identify a specific item in the JSON
+                p
+                  | refer to attributes of #[a.hyperLink(href="#inputitem") InputItem]
+            tr
+              td
+                p testForFailure
+              td
+                p no 
+              td
+                p number of errors expected. Non-zero implies that we expect this request to fail, and hence output data expectations are irrelevant.
+            tr
+              td
+                p outputJson
+              td
+                p no
+              td
+                p if you want to specify exactly the fields/sheets expected as in the pay-load format(json)
+            tr
+              td
+                p outputFields
+              td
+                p no
+              td
+                p represents the fields to be expected in the output of a service
+                p
+                  | refer to attributes of #[a.hyperLink(href="#outputfield") OutputField]
+            tr
+              td
+                p outputLists
+              td
+                p no
+              td
+                p represents a list/array of items in a json
+                p
+                  | refer to attributes of #[a.hyperLink(href="#outputlist") OutputList]
+            tr
+              td
+                p outputItems
+              td
+                p no
+              td
+                p items/objects (which in turn contain fields/lists)
+                p
+                  | refer to attributes of #[a.hyperLink(href="#outputitem") OutputItem]
+            tr
+              td
+                p fieldsToBeAddedToContext
+              td
+                p no
+              td
+                p fields that are used by subsequent test plans 
+                p
+                  | refer to attributes of #[a.hyperLink(href="#contextfield") ContextField]
+            tr
+              td
+                p testClassName
+              td
+                p no
+              td
+                p Use java to inspect the result and assert. fully qualified class name that implements org.simplity.test.Inspector
+            tr
+              td
+                p nbrAssertions
+              td
+                p no
+              td
+                p  how many assertions are you making in this test case? This is meant for reporting purposes   
+    br
+    h3#inputfield InputField
+    div.downloadsDesc Represents a field to be provided as input to a service.
+    br
+    table
+          colgroup
+            col
+            col
+            col
+          tbody
+            tr
+              th
+                p Attribute name
+              th
+                p Required?
+              th
+                p Description
+            tr
+              td
+                p fieldSelector
+              td
+                p yes
+              td
+                p qualified field name which is relative to its parent.
+            tr
+              td
+                p fieldValue
+              td
+                p yes
+              td
+                p field value or $variableName to get value from test context
+    br
+    h3#inputitem InputItem
+    div.downloadsDesc Represents a JSON object.Allows setting assertions on an item
+    br
+    table
+          colgroup
+            col
+            col
+            col
+          tbody
+            tr
+              th
+                p Attribute name
+              th
+                p Required?
+              th
+                p Description
+            tr
+              td
+                p itemSelector
+              td
+                p yes
+              td
+                p qualified name to get the row data. 0 for first row, a.2 to get third row of the array with attribute a etc..
+            tr
+              td
+                p inputFields
+              td
+                p yes
+              td
+                p fields specified for this selected item.
+    br
+    h3#outputfield OutputField
+    div.downloadsDesc Represents a field that is expected to be in output of a service.
+    br
+    table
+          colgroup
+            col
+            col
+            col
+          tbody
+            tr
+              th
+                p Attribute name
+              th
+                p Required?
+              th
+                p Description
+            tr
+              td
+                p fieldSelector
+              td
+                p yes
+              td
+                p qualified field name which is relative to its parent.
+            tr
+              td
+                p fieldValue
+              td
+                p yes
+              td
+                p field value or $variableName to get value from test context
+            tr
+              td
+                p shouldBeAbsent
+              td
+                p no
+              td
+                p do you want test for non existence of this field?
+    br
+    h3#outputlist OutputList
+    div.downloadsDesc Represents a list/array of items in a json.
+    br
+    table
+          colgroup
+            col
+            col
+            col
+          tbody
+            tr
+              th
+                p Attribute name
+              th
+                p Required?
+              th
+                p Description
+            tr
+              td
+                p listSelector
+              td
+                p yes
+              td
+                p qualified name that would fetch this list (array) for example a.2.b would get json[a][2][b].
+            tr
+              td
+                p minRows
+              td
+                p yes
+              td
+                p min rows expected.
+            tr
+              td
+                p maxRows
+              td
+                p yes
+              td
+                p max rows expected.
+    br
+    h3#outputitem OutputItem
+    div.downloadsDesc Represents a JSON object. It Allows setting assertions on such an item.
+    br
+    table
+          colgroup
+            col
+            col
+            col
+          tbody
+            tr
+              th
+                p Attribute name
+              th
+                p Required?
+              th
+                p Description
+            tr
+              td
+                p itemSelector
+              td
+                p yes
+              td
+                p qualified name to get the row data. 0 for first row, a.2 to get third row of the array with attribute a etc..
+            tr
+              td
+                p outputFields
+              td
+                p yes
+              td
+                p fields specified for this selected row. 
+                p 
+                  | refer to attributes of OutputField
+    br
+    h3#contextfield ContextField
+    div.downloadsDesc Specification for a field from output of a service test to be added to the test context.
+    br
+    table
+          colgroup
+            col
+            col
+            col
+          tbody
+            tr
+              th
+                p Attribute name
+              th
+                p Required?
+              th
+                p Description
+            tr
+              td
+                p fieldSelector
+              td
+                p yes
+              td
+                p source of this field in the output JSON e.g. customerName or orders.lines[2].price. Special case "." (just dot ) to select the entire JSON itself
+            tr
+              td
+                p nameInContext
+              td
+                p yes
+              td
+                p name under which this is to be added to the context. This is the name that the next service uses to retrieve this value. defaults to fieldSelector
 include ../footer
