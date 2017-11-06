@@ -1,0 +1,151 @@
+include ../header
+div.downloadsContainer
+  div.downloadsInnerContainer
+    div.downloadsHeader Stored Procedure
+    div.downloadsDesc This component is a wrapper on a procedure that is available in the rdbms. For example a PL-SQL procedure saved in Oracle. You specify all the details that are required to invoke a procedure. These details can be extracted from db using metadata. We intend to develop a tool for that. At this time, you have to manually specify details and ensure that the types and sequence match. Stored procedures, once defined like this, can be used in any service with executes action, or in your custom java class
+    br
+    table
+        colgroup
+            col
+            col
+            col
+          tbody
+            tr
+              th
+                p Attribute name
+              th
+                p Required?
+              th
+                p Description
+            tr
+              td
+                p name
+              td
+                p yes
+              td
+                p
+                  | Unique within a module.  This need not be the actual procedure name inside the db. In fact, we recommend that you follow a camelCase naming convention that is more common than the &apos;_&apos; that is common in db.
+            tr
+              td
+                p moduleName
+              td
+                p no
+              td
+                p
+                  | Should match the folder structure under which this component is saved. If a.b.c is the published name of this procedure then module name is a.b, procedure name is c, and the component is saved as /a/b/c.xml  under the root folder meant for stored procedure (/sp/).
+            tr
+              td
+                p procedureName
+              td
+                p yes
+              td
+                p name of the procedure in the data base.
+            tr
+              td
+                p parameters
+              td
+                p no
+              td
+                p list of parameters. Refer to Procedure Parameter attributes.
+            tr
+              td
+                p firstParameterIsForReturnedValue
+              td
+                p no
+              td
+                p
+                  | It is possible that your procedure is designed to return a value. (Not recommended, but no harm if it is already designed that way) In such a case, you should specify that as the first parameter in parameters, and set this attribute to true.
+            tr
+              td
+                p outputRecordNames
+              td
+                p no
+              td
+                p
+                  | It is possible to write procedures that return one or more result sets. Provide a comma separated list of fully qualified record corresponding to the result sets.
+    br
+    h3 Procedure Parameter
+    div.downloadsDesc Stored procedure parameter has the following attributes.
+    br
+    table
+        colgroup
+          col
+          col
+          col
+        tbody
+          tr
+            th
+              p Attribute name
+            th
+              p Required?
+            th
+              p Description
+          tr
+            td
+              p name
+            td
+              p yes
+            td
+              p
+                | Field name or column in a data sheet that has the value for this parameter at run time. This may or may not be the same as the name with which stored procedure is defined. Remember that the procedure parameters are passed by order, and not by matching names.
+          tr
+            td
+              p dataType
+            td
+              p yes
+            td
+              p one of the declared data types.
+          tr
+            td
+              p defaultValue
+            td
+              p no
+            td
+              p if value is not found, this value is used
+          tr
+            td
+              p isRequired
+            td
+              p no
+            td
+              p
+                | defaults to false. An error is generated if this is true and there is no defaultValue and the parameter has no value at run time.
+          tr
+            td
+              p inoutType
+            td
+              p no
+            td
+              p input, output or inOut
+          tr
+            td
+              p sqlObjectType
+            td
+              p no
+            td
+              p
+                | relevant if this parameter is a data structure/object as per db definition. This MUST match the declaration in the sp.
+          tr
+            td
+              p recordName
+            td
+              p no
+            td
+              p
+                | required if sqlObjectType is specified. This record must have fields that match the order and type as in the data-structure/object definition in the rdbms.
+          tr
+            td
+              p isArray
+            td
+              p no
+            td
+              p true if the parameter is an array
+          tr
+            td
+              p sqlArrayType
+            td
+              p no
+            td
+              p
+                | required if isArray is set to true. Should match the name as defined in the rdbms.
+include ../footer

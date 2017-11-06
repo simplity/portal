@@ -32,6 +32,10 @@ div.componentContainer
         a.component(href="/portal/components/sql") SQL
         div.componentDesc A record helps us in implementing the model
       div.componentPartition.hidden
+        img.componentImg(src= "/portal/images/sp.png")
+        a.component(href="/portal/components/sp") Stored Procdure
+        div.componentDesc A wrapper on a procedure that is available in the rdbms.
+      div.componentPartition.hidden
         img.componentImg(src= "/portal/images/batchProcessor.png")
         a.component(href="/portal/components/batch") Batch
         div.componentDesc A record helps us in implementing the model      
@@ -63,9 +67,9 @@ div.flyContainer
         div.flyDescription Expected input for an on-the-fly service can be specified. Simplity parses request data for this input and invokes the requested on-the-fly service.
       div.flyButtonsBanner
         div.flyBannerButton-1
-          div.flyBannerButtonText-1 GET STARTED
+          a.flyBannerButtonText-1(href="/portal/examples/petstore") GET STARTED
         div.flyBannerButton-2
-          div.flyBannerButtonText-2 VIEW DOCUMENTATION
+          a.flyBannerButtonText-2(href="/portal/on-the-fly") VIEW DOCUMENTATION
 div.helperContainer
   div.helperContent
     div.helperLeft

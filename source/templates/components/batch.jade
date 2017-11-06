@@ -1,76 +1,124 @@
 include ../header
 div.downloadsContainer
   div.downloadsInnerContainer
-    div.downloadsHeader Getting Started
-    div.downloadsDesc You can get started with simplity in various ways.
-    div.line
-    div.releaseList
-      ul.releaseListItems
-        li Steps to create Simple Application
-        li Utilities
-        li Creating simplity application using archetype
-    div.releaseContainer
-      div.accordian 
-        div.accordianName Steps to create Simple Application
-      div.releaseInnerContainer
-        div.releaseList1 1. Get simplity kernel
-        div.line
-        div.stable For Maven users-
-        ul.codeoptions
-          li Downloads
-          li Copy code
-          li View output
-        div.box
-          div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
-        div.stable Plain Java-
-        ul.codeoptions
-          li Downloads
-          li Copy code
-          li View output
-        div.box
-          div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;/groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
-        div.releaseList1 2. Creating project
-        div.line
-        ul.creationSteps
-          li Create a new "Maven Project" in eclipse
-          li Configure web.xml to have the following entry
-            div
-              div.stable1    
-              ul.codeoptions1
-                li Downloads
-                li Copy code
-                li View output
-              div.box
-                div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
-          li Other servlet mappings are:
-            ul
-              li
-                div.stable1 For Authentication
-                ul.codeoptions1
-                  li Downloads
-                  li Copy code
-                  li View output
-                div.box
-                  div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
-              li 
-                div.stable1  For file upload/download  
-                ul.codeoptions1
-                  li Downloads
-                  li Copy code
-                  li View output
-                div.box
-                  div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
-          li Please make sure that the folder structure of comp as follows:
-          li Comp folder is where we will be adding our components
-          li Copy simplity folder under webapp folder. This has just one .js file that we are going to use on the client.
-        
-        div.releaseList1 3. Application Configuration
-        div.line
-        ul.creationSteps
-          li Configure application.xml under WEB-INF as follows:
-        
-      div.accordian 
-        div.accordianName Utilities
-      div.accordian 
-        div.accordianName Creating simplity application using archetype
+    div.downloadsHeader Batch
+    div.downloadsDesc Batch is a list of all the jobs to be managed as batch/background services. This component allows you to specify all the jobs to be executed. This component is to be configured in application.xml using batchJobToRunOnStartup.
+    br
+    table
+          colgroup
+            col
+            col
+            col
+          tbody
+            tr
+              th
+                p Attribute name
+              th
+                p Required?
+              th
+                p Description
+            tr
+              td
+                p name
+              td
+                p yes
+              td
+                p Unique within a module.
+            tr
+              td
+                p moduleName
+              td
+                p no
+              td
+                p
+                  | Should match the folder structure under which this component is saved. If a.b.c is the published name of this batch then module name is a.b, batch name is c, and the component is saved as /a/b/c.xml under the root folder meant for batch jobs (/batch/).
+            tr
+              td
+                p defaultUserId
+              td
+                p no
+              td
+                p
+                  | userId to be used for running the batch. Defaults to setting in application.xml, or &quot;100&quot;. Over-ridden by the setting at job level.
+    br
+    p
+       strong Elements available for Batch are : Jobs
+    br
+    p Following are the job attributes
+    table
+            colgroup
+              col
+              col
+              col
+            tbody
+              tr
+                th
+                  p Attribute name
+                th
+                  p Required?
+                th
+                  p Description
+              tr
+                td
+                  p name
+                td
+                  p yes
+                td
+                  p name of the job, unique within a jobs collection
+              tr
+                td
+                  p serviceName
+                td
+                  p yes
+                td
+                  p qualified name of the service to be run as a job
+              tr
+                td
+                  p runAtTheseTimes
+                td
+                  p no
+                td
+                  p
+                    | If the scheduling is by time of the day, use this option to specify comma separated list of times in 24Hr
+                    | format upto minute (hh:mm, hh:mm, &mldr;&ZeroWidthSpace;)
+              tr
+                td
+                  p runInterval
+                td
+                  p no
+                td
+                  p
+                    | Use this if batch service to be run repeatedly. number of seconds between two runs start-to-start.
+              tr
+                td
+                  p nbrDedicatedThreads
+                td
+                  p no
+                td
+                  p
+                    | use this if this is a listener/background job that is run once. min value is 1. If more than 1 is specified, the job is fired on that many threads simultneously, subject to availablity of threads in this scheduler.
+              tr
+                td
+                  p userId
+                td
+                  p no
+                td
+                  p
+                    | userId to be used for running this job. Overrides setting at jobs/application. Service is executed with
+                    | thisuser as logged-in user
+              tr
+                td
+                  p inputFields
+                td
+                  p no
+                td
+                  p refer to attributes of Input Field
+              tr
+                td
+                  p inputJson
+                td
+                  p no
+                td
+                  p parameters that the service expects as input are supplied with this mechanism
+
 include ../footer

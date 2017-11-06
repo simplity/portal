@@ -20,6 +20,14 @@ var homepage = require("jade").compileFile(__dirname+"/source/templates/homepage
 	examplesDescpage3 = require("jade").compileFile(__dirname+"/source/templates/examples/todos/todos.jade"),
 	examplesDescpage4 = require("jade").compileFile(__dirname+"/source/templates/examples/contract/contract.jade"),
 	compoServicepage = require("jade").compileFile(__dirname+"/source/templates/components/services.jade"),	
+	compoDTpage= require("jade").compileFile(__dirname+"/source/templates/components/datatypes.jade"),	
+	compoRecpage= require("jade").compileFile(__dirname+"/source/templates/components/records.jade"),
+	compoMsgpage= require("jade").compileFile(__dirname+"/source/templates/components/messages.jade"),
+	compoSqlpage= require("jade").compileFile(__dirname+"/source/templates/components/sql.jade"),
+	compoTestspage= require("jade").compileFile(__dirname+"/source/templates/components/tests.jade"),
+	compoBatchspage= require("jade").compileFile(__dirname+"/source/templates/components/batch.jade"),
+	compoSppage= require("jade").compileFile(__dirname+"/source/templates/components/sp.jade"),
+	ontheflypage=require("jade").compileFile(__dirname+"/source/templates/on-the-fly.jade"),
     fs=require("fs");
 
 fs.writeFile(__dirname+"/docs/index.html",homepage({title:'Home'}),function(err,data){
@@ -105,6 +113,38 @@ fs.writeFile(__dirname+"/docs/getStarted/webappwithDb/index.html",webappwithdbpa
 	console.log('The Web App with Database file has been saved!');	
 });	
 fs.writeFile(__dirname+"/docs/components/services/index.html",compoServicepage({title:'Services'}),function(err,data){
+	if (err) throw err;
+	console.log('The home file has been saved!');	
+});	
+fs.writeFile(__dirname+"/docs/components/datatypes/index.html",compoDTpage({title:'Data Types'}),function(err,data){
+	if (err) throw err;
+	console.log('The home file has been saved!');	
+});	
+fs.writeFile(__dirname+"/docs/components/batch/index.html",compoBatchspage({title:'Batch'}),function(err,data){
+	if (err) throw err;
+	console.log('The home file has been saved!');	
+});	
+fs.writeFile(__dirname+"/docs/components/messages/index.html",compoMsgpage({title:'Messages'}),function(err,data){
+	if (err) throw err;
+	console.log('The home file has been saved!');	
+});	
+fs.writeFile(__dirname+"/docs/components/records/index.html",compoRecpage({title:'Records'}),function(err,data){
+	if (err) throw err;
+	console.log('The home file has been saved!');	
+});	
+fs.writeFile(__dirname+"/docs/components/sql/index.html",compoSqlpage({title:'Sql'}),function(err,data){
+	if (err) throw err;
+	console.log('The home file has been saved!');	
+});	
+fs.writeFile(__dirname+"/docs/components/tests/index.html",compoTestspage({title:'Tests'}),function(err,data){
+	if (err) throw err;
+	console.log('The home file has been saved!');	
+});	
+fs.writeFile(__dirname+"/docs/components/sp/index.html",compoSppage({title:'Stored Procedure'}),function(err,data){
+	if (err) throw err;
+	console.log('The home file has been saved!');	
+});
+fs.writeFile(__dirname+"/docs/on-the-fly/index.html",ontheflypage({title:'On the fly services'}),function(err,data){
 	if (err) throw err;
 	console.log('The home file has been saved!');	
 });	

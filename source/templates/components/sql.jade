@@ -1,76 +1,126 @@
 include ../header
 div.downloadsContainer
   div.downloadsInnerContainer
-    div.downloadsHeader Getting Started
-    div.downloadsDesc You can get started with simplity in various ways.
-    div.line
-    div.releaseList
-      ul.releaseListItems
-        li Steps to create Simple Application
-        li Utilities
-        li Creating simplity application using archetype
-    div.releaseContainer
-      div.accordian 
-        div.accordianName Steps to create Simple Application
-      div.releaseInnerContainer
-        div.releaseList1 1. Get simplity kernel
-        div.line
-        div.stable For Maven users-
-        ul.codeoptions
-          li Downloads
-          li Copy code
-          li View output
-        div.box
-          div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
-        div.stable Plain Java-
-        ul.codeoptions
-          li Downloads
-          li Copy code
-          li View output
-        div.box
-          div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;/groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
-        div.releaseList1 2. Creating project
-        div.line
-        ul.creationSteps
-          li Create a new "Maven Project" in eclipse
-          li Configure web.xml to have the following entry
-            div
-              div.stable1    
-              ul.codeoptions1
-                li Downloads
-                li Copy code
-                li View output
-              div.box
-                div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
-          li Other servlet mappings are:
-            ul
-              li
-                div.stable1 For Authentication
-                ul.codeoptions1
-                  li Downloads
-                  li Copy code
-                  li View output
-                div.box
-                  div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
-              li 
-                div.stable1  For file upload/download  
-                ul.codeoptions1
-                  li Downloads
-                  li Copy code
-                  li View output
-                div.box
-                  div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
-          li Please make sure that the folder structure of comp as follows:
-          li Comp folder is where we will be adding our components
-          li Copy simplity folder under webapp folder. This has just one .js file that we are going to use on the client.
-        
-        div.releaseList1 3. Application Configuration
-        div.line
-        ul.creationSteps
-          li Configure application.xml under WEB-INF as follows:
-        
-      div.accordian 
-        div.accordianName Utilities
-      div.accordian 
-        div.accordianName Creating simplity application using archetype
+    div.downloadsHeader SQL
+    div.downloadsDesc SQL is the language that is used to direct the rdbms to manipulate retrieve data, manipulate data, or change database structure itself. This component allows you to design a dynamic sql to e executed at run time, based on run-time values.
+    br
+    table
+        colgroup
+            col
+            col
+            col
+          tbody
+            tr
+              th Attribute name
+              th Required?
+              th Description
+            tr
+              td
+                p name
+              td
+                p yes
+              td
+                p Unique within a module.
+            tr
+              td
+                p moduleName
+              td
+                p no
+              td
+                p
+                  | Should match the folder structure under which this component is saved. If a.b.c is the published name of this sql then module name is a.b, sql name is c, and the component is saved as /a/b/c.xml  under the root folder meant for sqls (/sql/).
+            tr
+              td
+                p sqlType
+              td
+                p yes
+              td
+                p
+                  | * singleSelect : Data extraction sql. At most one row is returned by design. (like primary-key based read)
+                  | * mutliselect : Data extraction sql. More than one row may be returned. (like filter)
+                  | * update: data manipulation  sql. Number of Rows affected is returned.
+            tr
+              td
+                p preparedStatement
+              td
+                p yes
+              td
+                p
+                  | sql formatted properly as a prepared statement. Simplity does not check the syntax of the sql. Developer has to ensure that the prepared statement and the sql parameters are designed properly.
+            tr
+              td
+                p inputParameters
+              td
+                p no
+              td
+                p
+                  | Refer ro SqlParamter attributes. Specifies the parameters that are in the right sequence for each of the &quot;?&quot; in the prepared statement.
+            tr
+              td
+                p inputRecordName
+              td
+                p no
+              td
+                p
+                  | If you have a record whose fields are in the right order for this prepared statement, use this feature rather than listing inputParameters.
+            tr
+              td
+                p outputRecordName
+              td
+                p no
+              td
+                p This is the preferred way to specify the output.
+            tr
+              td
+                p ouputParameters
+              td
+                p no
+              td
+                p
+                  | In case you do not have a re-use for a record as output, you may list the output parameters instead of specifying a record name. Provide the output fields in the right order. name and dataType are the attributes of an output parameter.
+    h3 SQL Parameter
+    div.downloadsDesc Sql parameter is used for both input and output parameters
+    br
+    table
+       colgroup
+           col
+           col
+           col
+         tbody
+           tr
+              th Attribute name
+              th Required?
+              th Description
+           tr
+             td
+               p name
+             td
+               p yes
+             td
+               p
+                 | Field name or column in a data sheet that has the value for this parameter at run time.
+           tr
+             td
+               p dataType
+             td
+               p yes
+             td
+               p one of the declared data types.
+           tr
+             td
+               p defaultValue
+             td
+               p no
+             td
+               p if value is not found, this value is used
+           tr
+             td
+               p isRequired
+             td
+               p no
+             td
+               p
+                 | defaults to false. An error is generated if this is true and there is no defaultValue and the parameter has no value at run time.
+
+
 include ../footer

@@ -1,6 +1,6 @@
 * {
   margin: 0;
-  padding: 0;
+  font-family: "Segoe UI";
   box-sizing: border-box;
 }
 html {
@@ -223,6 +223,7 @@ a.navLinks:hover {
   vertical-align: middle;
 }
 .componentsArrow {
+  padding: 0;
   display: inline-block;
   position: relative;
   width: 2%;
@@ -1177,4 +1178,21 @@ a.navLinks:hover {
 .padding {
   padding-bottom: 20px;
   padding-top: 20px;
+}
+table {
+  border-collapse: collapse;
+  border: #f0ffff;
+  border-style: groove;
+}
+th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #316780;
+  color: #fff;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
 }

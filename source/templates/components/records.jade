@@ -1,76 +1,323 @@
 include ../header
 div.downloadsContainer
   div.downloadsInnerContainer
-    div.downloadsHeader Getting Started
-    div.downloadsDesc You can get started with simplity in various ways.
-    div.line
-    div.releaseList
-      ul.releaseListItems
-        li Steps to create Simple Application
-        li Utilities
-        li Creating simplity application using archetype
-    div.releaseContainer
-      div.accordian 
-        div.accordianName Steps to create Simple Application
-      div.releaseInnerContainer
-        div.releaseList1 1. Get simplity kernel
-        div.line
-        div.stable For Maven users-
-        ul.codeoptions
-          li Downloads
-          li Copy code
-          li View output
-        div.box
-          div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
-        div.stable Plain Java-
-        ul.codeoptions
-          li Downloads
-          li Copy code
-          li View output
-        div.box
-          div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;/groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
-        div.releaseList1 2. Creating project
-        div.line
-        ul.creationSteps
-          li Create a new "Maven Project" in eclipse
-          li Configure web.xml to have the following entry
-            div
-              div.stable1    
-              ul.codeoptions1
-                li Downloads
-                li Copy code
-                li View output
-              div.box
-                div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
-          li Other servlet mappings are:
-            ul
-              li
-                div.stable1 For Authentication
-                ul.codeoptions1
-                  li Downloads
-                  li Copy code
-                  li View output
-                div.box
-                  div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
-              li 
-                div.stable1  For file upload/download  
-                ul.codeoptions1
-                  li Downloads
-                  li Copy code
-                  li View output
-                div.box
-                  div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
-          li Please make sure that the folder structure of comp as follows:
-          li Comp folder is where we will be adding our components
-          li Copy simplity folder under webapp folder. This has just one .js file that we are going to use on the client.
-        
-        div.releaseList1 3. Application Configuration
-        div.line
-        ul.creationSteps
-          li Configure application.xml under WEB-INF as follows:
-        
-      div.accordian 
-        div.accordianName Utilities
-      div.accordian 
-        div.accordianName Creating simplity application using archetype
+    div.downloadsHeader Records
+    div.downloadsDesc Table, entity and data-structure are the other possible names for this component. Essentially we define a group of fields into a record and use it for different purposes. A record helps us in implementing one of the golden rules of design : DRY (Do not Repeat Yourself) Once a record is defined, we can use to represent a database table/view, or a data structure for a parameter for a stored procedure, or set of fields that are expected as input from client etc.We have three types of records:
+    br
+    ol
+     li #[b Storage]: represents a record that is stored as part of your data base. A storage record maps directly to a table in your RDBMS. Note that only storage records can be used for writing to the data base. (add/modify/delete)  
+     li #[b View]: represents a record as seen by end-users. Typically a view has either a subset of fields from a storage record, or it is formed by picking fields from a set of related storage records. For example when you show details of a customer on a page, you may want to show total order value of this customer, number of pending orders etc.	 
+     li #[b Structure]: this is a set of related fields that are utilized by some part of your application, but they are not directly mapped to any field in a storage record. These fields are temporary data elements that are calculated at run time implement some business rules. 
+    div.downloadsDesc Records are organized in one or more files under rec/ folder. Attributes of records are:
+    br
+    table
+       colgroup
+           col
+           col
+           col
+         tbody
+           tr
+             th
+               p Attribute name
+             th
+               p Required?
+             th
+               p Description
+           tr
+             td
+               p name
+             td
+               p yes
+             td
+               p Unique name within a module.
+           tr
+             td
+               p moduleName
+             td
+               p no
+             td
+               p
+                 | Should match the folder structure under which this component is saved. If a.b.c is the published name of this record then module name is a.b, record name is c, and the component is saved as /a/b/c.xml  under the root folder meant for records (/rec/).
+           tr
+             td
+               p recordType
+             td
+               p yes
+             td
+               p storage, view or dataStructure
+           tr
+             td
+               p fields
+             td
+               p yes
+             td
+               p list of fields.
+           tr
+             td
+               p tableName
+             td
+               p no
+             td
+               p This is the name of the table or view in the database. Defaults to name.
+           tr
+             td
+               p okToSelectAll
+             td
+               p no
+             td
+               p
+                 | A simple check against an unconditional select from the table to avoid too many rows getting extracted.  If false, filter action on the record will raise an error if no conditions are specified.
+           tr
+             td
+               p keyToBeGenerated
+             td
+               p no
+             td
+               p
+                 | If set to true, key is generated using appropriate method based on the underlying rdbms during a add action.
+           tr
+             td
+               p childrenToBeRead
+             td
+               p no
+             td
+               p
+                 | Comma separated list of fully qualified record names that are the child tables of this table whose rows are also to be selected/read when we read/filter rows using this record. This attribute is used only when we use an auto-service or on-the-fly service.
+           tr
+             td
+               p childrenToBeSaved
+             td
+               p no
+             td
+               p
+                 | Comma separated list of fully qualified record names that are the child tables of this table whose rows are also to be saved when we save rows using this record. This attribute is used only when we use an auto-service or on-the-fly service.
+           tr
+             td
+               p listFieldName
+             td
+               p no
+             td
+               p
+                 | If this table is the source of a list of values for a drop-down, you can use this record name for auto-service or on-the-fly-service. Each row in the list has two columns. First column is the primary key of this table. Second column would be this column. For example if this table has all the countries, then listFieldName=&quot;countryName&quot;
+           tr
+             td
+               p listGroupKeyName
+             td
+               p no
+             td
+               p
+                 | This attribute is also meant for drop-down list. For example if you have states of several countries in this table, and you want to send states for a given country name, then use valueListKeyName=&quot;contryCode&quot;
+           tr
+             td
+               p defaultSheetName
+             td
+               p no
+             td
+               p
+                 | Defaults to name. This name is used as default for data sheets that are associated with this record.
+           tr
+             td
+               p sequenceName
+             td
+               p no
+             td
+               p
+                 | name of the sequence to be used to get the next key value from in case oracle is used. Ignored for non-oracle use. Defaults to tableName_SEQ.
+           tr
+             td
+               p suggestionKeyName
+             td
+               p no
+             td
+               p
+                 | This is required if this record is to be used for a suggestion service. This is the field name against which typed characters are to be matched.
+           tr
+             td
+               p suggestionOutputNames
+             td
+               p no
+             td
+               p
+                 | Comma separated list of field names to be extracted, in addition to the key field mentioned above, for each row in the suggestion list.
+           tr
+             td
+               p readOnly
+             td
+               p no
+             td
+               p Must be set to false for any write operation using this record.
+           tr
+             td
+               p defaultRefRecord
+             td
+               p no
+             td
+               p
+                 | Required if this is a view. This is the fully qualified name of the default reference record for fields.
+           tr
+             td
+               p schemaName
+             td
+               p no
+             td
+               p
+                 | In case the underlying table/view is not part of the default schema. If this is specified, designer has to ensure that any record-based I/O action, like saveAction, is used in a service that uses this schema. A service cannot use components from different schemas.
+           tr
+             td
+               p useTimestampForConcurrency
+             td
+               p no
+             td
+               p
+                 | It is common practice to detect &apos;dirty-update&apos; using last modified time stamp. Example,user A reads a row, user B also reads the same row while user A is still looking at it. User A updates the row. Now, user B, who is unaware of the latest values A has updated, makes changes to this row, and submits for update.  This, in most case, should not allowed because amongst other things, user B may be unintentionally over-writing user A&rsquo;s changes.
+               p
+                 | Ensure that you have designated a field as fieldType=&quot;modifiedAt&quot; and its dataType=&quot;timestamp&quot;. And that you have extracted the timestamp for the client to send it back for the update service request.
+           tr
+             td
+               p okToCacheList
+             td
+               p no
+             td
+               p
+                 | Applicable if you have set up this application for caching (refer to application.xml settings). The auto service (on-the-fly-service) list_recordName can be marked for caching by setting this attribute to true. Caching would be across all users. If listGroupKeyName is specified, then caching will happen for each value of that field, else it wouldn&rsquo;t depend on input.
+    br
+    h3 Field
+    div.downloadsDesc Fields make up a record.
+    br
+    table
+          colgroup
+            col
+            col
+            col
+          tbody
+            tr
+              th
+                p Attribute name
+              th
+                p Required?
+              th
+                p Description
+            tr
+              td
+                p name
+              td
+                p yes
+              td
+                p Unique within a record.
+            tr
+              td
+                p fieldType
+              td
+                p no
+              td
+                p data
+                p
+                  | - holds data for this field.
+                  | * primaryKey this is the primary for this record
+                  | *parentKey - links to primary of parent record
+                  | *foreignKey - links to primary key of a related record, (not the parent record)
+                  | *createdTimeStamp - maintains time stamp when row is added. Simplity sets value to this field automatically if save action is executed using this record.
+                  | *createdByUser - userId that created this row. Automatically populated during a save operation
+                  | *modifiedByUser - user id that last modified this row. Automatically populated during a save operation
+                  | *modifiedTimeStamp  - maintains time stamp when row is last modified. Simplity sets value this field automatically if save action is executed using this record. Also, value this field is used for checking concurrency during a modify action.
+                  | *view  all fields in a view have this value.
+                  | *temp - this field is not part of the table. Default for all fields in a dataStructure
+            tr
+              td
+                p dataType
+              td
+                p yes
+              td
+                p One of the declared data types.
+            tr
+              td
+                p columnName
+              td
+                p no
+              td
+                p Name of the database column. Defaults to name.
+            tr
+              td
+                p isNullable
+              td
+                p no
+              td
+                p Is this a nullable column in the database.
+            tr
+              td
+                p referredRecord
+              td
+                p no
+              td
+                p
+                  | Required for a field that is referred, or a field in a view, but defaults to the value specified at the record level. (defaultRefRecord)
+            tr
+              td
+                p referredField
+              td
+                p no
+              td
+                p field name in the referred record
+            tr
+              td
+                p valueList
+              td
+                p no
+              td
+                p
+                  | Similar to valueList in dataType. To be used only if it is not specified as part of data type.
+            tr
+              td
+                p isRequired
+              td
+                p no
+              td
+                p
+                  | Is this field mandatory when a client is expected to send fields for this record? Typically this is for an add operation. Simplity takes care making it optional for actions like filter and read.
+            tr
+              td
+                p defaultValue
+              td
+                p no
+              td
+                p
+                  | Applicable if this field is optional. Value to be used if client has not specified value for this field.
+            tr
+              td
+                p basedOnField
+              td
+                p no
+              td
+                p
+                  | This is for inter-field validation. This is used if this field is required if the other field is specified. Say A and B are optional. But if A is specified, then B should also be specified.
+            tr
+              td
+                p otherField
+              td
+                p no
+              td
+                p
+                  | If one of the two fields is to be specified, then use this feature. You need to specify otherField for one of them. That is, if one of A or B is required, you may set otherField=? for A. DO not specify otherField=? for B also.
+            tr
+              td
+                p fromField
+              td
+                p no
+              td
+                p
+                  | If this field is a to-field of a from-to duo, specify this attribute. For one duo, setting on one field is sufficient. However, we have  provided fromFiled as well as toField to allw a field to be part f more than one pairs.
+            tr
+              td
+                p toField
+              td
+                p no
+              td
+                p refer to fromField.
+            tr
+              td
+                p messageName
+              td
+                p no
+              td
+                p Name of message component to be used in case this field fails validation.
 include ../footer
