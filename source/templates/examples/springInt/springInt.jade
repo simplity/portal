@@ -1,0 +1,23 @@
+include ../../header
+script (src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css")
+div.examplesDesccontainer
+  div.examplesContainer
+    h2 Spring integration with Simplity
+    div.plainText A simple application that fetches data and display it as a table.This example gives an overview of integrating  #[a.hyperLink(href="https://www.tutorialspoint.com/spring/") Spring Framework] with Simplity.
+    h3 Pre-requisites
+    ul.ulStyle
+      li JDK 1.7 or later
+      li Maven 3.0+
+      li Apache Tomcat 7.0+
+    h3.padding How to run this application
+    ul.ulStyle
+      li Find the source code for this project at 
+        div.textbox 
+          a.hyperLink(href="https://github.com/simplity/examples/tree/master/springIntegration") https://github.com/simplity/examples/tree/master/springIntegration
+    div.plainText Build the war file using maven and deploy it in Tomcat server.Once the server start and service is up visit  
+      a.hyperLink(href="http://localhost:8080/springIntegration/") http://localhost:8080/springIntegration/
+    div.plainText Click on the 'GetUsers' button to view tha data.
+    h3 Configurations
+    div.plainText #[div.textbox #[code /springIntegration/src/main/java/org/simplity/examples/springIntegration/logic/FetchUsers.java]] is the logic class gets invoked by service #[b fetchUserRecord] to interact with Spring.
+    div.plainText #[a.hyperLink(href="http://localhost:8080/springIntegration/") classManager] is the attribute that needs to be set in #[div.textbox #[code application.xml]] and it's value is a java class that should implement #[div.textbox #[code org.simplity.tp.ContextInterface]] to inject the Spring context into the Simplity.
+include ../../footer
