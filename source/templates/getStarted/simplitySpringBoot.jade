@@ -1,4 +1,5 @@
 include ../header
+script(src='../../js/home.js')
 div.downloadsContainer
   div.downloadsInnerContainer
     div.downloadsHeader Simplity with Spring BOOT
@@ -12,14 +13,14 @@ div.downloadsContainer
         div.line
         div.stable For Maven users-
         ul.codeoptions
-          li Copy code
+          button.copyCode(onclick="toClipboard('dependency1')") copy code
         div.box
-          div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
+          div.dependency#dependency1 &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
         div.stable Plain Java-
         ul.codeoptions
-          li Copy code
+          button.copyCode(onclick="toClipboard('dependency2')") copy code
         div.box
-          div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;/groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
+          div.dependency#dependency2 &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;/groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
         div.releaseList1 2. Creating project and Configuration
         div.line
         ul.creationSteps
@@ -32,8 +33,8 @@ div.downloadsContainer
             div
               div.stable1    
               ul.codeoptions1
-                li Copy code
-              div.boxcustom
+                button.copyCode(onclick="toClipboard('appxml')") copy code
+              div.boxcustom#appxml
                 &lt;?xml version="1.0" encoding="UTF-8"?&gt;</br>&lt;application</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xmlns="http://www.simplity.org/schema"</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;applicationId="ContractService"</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;autoLoginUserId="100"</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;logSqls="true"&gt;</br>&lt;/application&gt;</br>&nbsp;&nbsp;
               ul 
                 li This is the root file of simplity which helps to configure various features of Simplity. Here <b>"applicationId"</b> is a mandatory field which represents the application name. applicationId should be a unique name for the application.
@@ -42,8 +43,8 @@ div.downloadsContainer
             div
               div.stable1    
               ul.codeoptions1
-                li Copy code
-              div.boxcustom
+                button.copyCode(onclick="toClipboard('swaggerjson')") copy code
+              div.boxcustom#swaggerjson
                 {</br>&nbsp;&nbsp;&nbsp;&nbsp;"swagger": "2.0",</br>&nbsp;&nbsp;&nbsp;&nbsp;"info": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"description": "",</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"version": "2.0",</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"title": "org.simplity.apiscdb"</br>&nbsp;&nbsp;&nbsp;&nbsp;},</br>&nbsp;&nbsp;&nbsp;&nbsp;"host": "localhost:8070",</br>&nbsp;&nbsp;&nbsp;&nbsp;"basePath": "/app/openapi",</br>&nbsp;&nbsp;&nbsp;&nbsp;"schemes": [  "http"  ],</br>&nbsp;&nbsp;&nbsp;&nbsp;"consumes": [  "application/json"  ],</br>&nbsp;&nbsp;&nbsp;&nbsp;"produces": [  "application/json"  ],</br>&nbsp;&nbsp;&nbsp;&nbsp;"paths": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"/contract": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"get": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tags": [  "contract"  ],</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"operationId": "contractFind",</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"summary": "contractFind",</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"description":"",</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"deprecated": false,</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"responses": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"200": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"description": "List of contracts",</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"schema": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"$ref": "#/definitions/ContractHeaders"</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</br>&nbsp;&nbsp;&nbsp;&nbsp;},</br>&nbsp;&nbsp;&nbsp;&nbsp;"definitions": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ContractHeaders": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "object",</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"x-fieldName": "ContractHeaders",</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"properties": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"contractHeaders": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "array",</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"items": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"$ref": "#/definitions/ContractHeader"</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ContractHeader": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "object",</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"properties": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"bpContractNum": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "string"</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"description": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "string"</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"assetName": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "string"</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"ErrorResponse": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"x-fieldName": "ErrorResponse",</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "object",</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"properties": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"message": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "string"</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</br>&nbsp;&nbsp;&nbsp;&nbsp;}</br>}</br></br> 
               ul
                 li <b>host</b> : host name and port number
@@ -54,8 +55,8 @@ div.downloadsContainer
             div
               div.stable1    
               ul.codeoptions1
-                li Copy code
-              div.boxcustom
+                button.copyCode(onclick="toClipboard('contractheaderxml')") copy code
+              div.boxcustom#contractheaderxml
                 &lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;</br>&lt;record name="ContractHeader" </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;recordType="storage"</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tableName="CONTRACTHEADER"</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;keyToBeGenerated="false"</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;okToSelectAll="true"</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xmlns="http://www.simplity.org/schema"&gt;</br>&nbsp;&nbsp;&lt;fields&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;field columnName="BP_CONTRACT_NUM" dataType="_text" fieldType="primaryKey" name="bpContractNum" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sqlTypeName="VARCHAR"/&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;field columnName="DESCRIPTION" dataType="_text" fieldType="data" name="description" sqlTypeName="VARCHAR"/&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;field columnName="ASSET_NAME" dataType="_text" fieldType="data" name="assetName" sqlTypeName="VARCHAR"/&gt;</br>&nbsp;&nbsp;&lt;/fields&gt;</br>&lt;/record&gt;</br></br> 
               ul
                 li Simplity records are kept under the comp/rec folder. This is the main part of data model. Data structures that are used as input to, or output from a service are modeled as records. Following are the fields of simplity record:
@@ -69,8 +70,8 @@ div.downloadsContainer
             div
               div.stable1    
               ul.codeoptions1
-                li Copy code
-              div.boxcustom
+                button.copyCode(onclick="toClipboard('contractfindxml')") copy code
+              div.boxcustom#contractfindxml
                 &lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;</br>&lt;service xmlns="http://www.simplity.org/schema" </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name="contractFind" </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dbAccessType="readOnly"&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;actions&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;filter filterRecordName="filteredContractHeaders" outputSheetName="contractHeaders"&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/filter&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;log names="contractHeaders"/&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/actions&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;outputData&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;outputRecords&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;outputRecord sheetName="contractHeaders" /&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/outputRecords&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/outputData&gt;</br>&lt;/service&gt;</br></br> 
           
         div.releaseList1 3. Write Spring Boot main program
@@ -80,8 +81,8 @@ div.downloadsContainer
             div
               div.stable1    
               ul.codeoptions1
-                li Copy code
-              div.boxcustom
+                button.copyCode(onclick="toClipboard('springbootjava')") copy code
+              div.boxcustom#springbootjava
                 </br>import java.io.File;</br>import org.simplity.kernel.Application;</br>import org.simplity.rest.Operations;</br>import org.slf4j.Logger;</br>import org.slf4j.LoggerFactory;</br>import org.springframework.boot.SpringApplication;</br>import org.springframework.boot.autoconfigure.EnableAutoConfiguration;</br>import org.springframework.boot.autoconfigure.web.DispatcherServletAutoConfiguration;</br>import org.springframework.boot.web.servlet.ServletRegistrationBean;</br>import org.springframework.context.annotation.Bean;</br>import org.springframework.context.annotation.ComponentScan;</br>import org.springframework.context.annotation.Configuration;</br>import org.springframework.web.servlet.DispatcherServlet;</br></br>@Configuration</br>@ComponentScan</br>@EnableAutoConfiguration</br>public class App {</br>&nbsp;&nbsp;&nbsp;&nbsp;final static Logger logger = LoggerFactory.getLogger(App.class);</br></br>&nbsp;&nbsp;&nbsp;&nbsp;@Bean</br>&nbsp;&nbsp;&nbsp;&nbsp;public DispatcherServlet dispatcherServlet() {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return new DispatcherServlet();</br>&nbsp;&nbsp;&nbsp;&nbsp;}</br></br>&nbsp;&nbsp;&nbsp;&nbsp;@Bean</br>&nbsp;&nbsp;&nbsp;&nbsp;public ServletRegistrationBean dispatchServletRegistration() {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ServletRegistrationBean registration = new ServletRegistrationBean(dispatcherServlet(), "/*");</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;registration.setName(DispatcherServletAutoConfiguration.DEFAULT_DISPATCHER_SERVLET_REGISTRATION_BEAN_NAME);</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return registration;</br>&nbsp;&nbsp;&nbsp;&nbsp;}</br></br>&nbsp;&nbsp;&nbsp;&nbsp;@Bean</br>&nbsp;&nbsp;&nbsp;&nbsp;public ServletRegistrationBean servletRegistrationBean() {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ServletRegistrationBean registration =  new ServletRegistrationBean(new org.simplity.rest.Serve(), "/app/*");</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;registration.setName("RestSimplity");</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return registration;</br>&nbsp;&nbsp;&nbsp;&nbsp;}</br></br>&nbsp;&nbsp;&nbsp;&nbsp;public static void main(String[] args) throws Exception {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File jarPath = new File(App.class.getProtectionDomain().getCodeSource().getLocation().getPath());</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String folder = jarPath.getParent() + File.separator + "classes/comp" + File.separator;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Application.bootStrap(folder);</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Operations.loadAll(folder + "/openapi/");</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} catch (Exception e) {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;logger.error("error while bootstrapping with compFolder=" + folder, e);</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SpringApplication.run(App.class, args);</br>&nbsp;&nbsp;&nbsp;&nbsp;}</br>}</br></br>
         
         div.releaseList1 3. Run Spring Boot application
@@ -92,8 +93,8 @@ div.downloadsContainer
             div
               div.stable1    
               ul.codeoptions1
-                li Copy code
-              div.boxcustom
+                button.copyCode(onclick="toClipboard('weburl')") copy code
+              div.boxcustom#weburl
                 "http://localhost:8070/ContractService/app/openapi/contract/"</br></br> 
               ul 
                 li <b>Note : </b> 
