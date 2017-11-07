@@ -16,6 +16,7 @@ div.downloadsContainer
           button.copyCode(onclick="toClipboard('dependency1')") copy code
         div.box
           div.dependency#dependency1 &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
+        </br>
         div.stable Plain Java-
         ul.codeoptions
           button.copyCode(onclick="toClipboard('dependency2')") copy code
@@ -50,7 +51,7 @@ div.downloadsContainer
               ul 
                 li This is the root file of simplity which helps to configure various features of Simplity. Here <b>"applicationId"</b> is a mandatory field which represents the application name. applicationId should be a unique name for the application.
                 li <b>NOTE:</b> To get more help, click ctrl + tab from the eclipse editor.
-
+          </br>
           li Create Simplity service under WEB-INF/comp/service/tp as follows.
             div
               div.stable1    
@@ -87,7 +88,7 @@ div.downloadsContainer
                 button.copyCode(onclick="toClipboard('simplitywebservicexml')") copy code
               div.boxcustom#simplitywebservicexml
                 &lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;</br>&lt;service xmlns="http://www.simplity.org/schema"</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name="simplityWebService" </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dbAccessType="none"&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;actions&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;httpClient httpMethod="GET" urlString="http://localhost:8080/helloworld/a._s?_serviceName=helloworld" </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contentType="application/json" responseFieldName="hello"&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/httpClient&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;log names="hello" /&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;setValue fieldName="hello" expression="concat('from simplityWebService: ',hello)"&gt;&lt;/setValue&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/actions&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;outputData fieldNames="hello"&gt;&lt;/outputData&gt;</br>&lt;/service&gt;</br></br> 
-                
+          </br>
           li Invoke Simplity service using javascript as follows.
             div
               div.stable1    

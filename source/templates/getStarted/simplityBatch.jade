@@ -16,6 +16,7 @@ div.downloadsContainer
           button.copyCode(onclick="toClipboard('dependency1')") copy code
         div.box
           div.dependency#dependency1 &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
+        </br>
         div.stable Plain Java-
         ul.codeoptions
           button.copyCode(onclick="toClipboard('dependency2')") copy code
@@ -37,17 +38,8 @@ div.downloadsContainer
         div.line
         ul.creationSteps
           li Create component folder structure under WEB-INF as follows:
-            ul
-              li
-                ul comp
-                  li batch
-                  li dt
-                  li msg
-                  li rec
-                  li service
-                    ul
-                      li tp
-                  li sql
+            div.boxcustom
+              <ul><li>comp<ul><li>batch</li><li>dt</li><li>msg</li><li>rec</li><li>service<ul style='list-style-type:circle'><li>tp</li></ul></li><li>sql</li></ul></li></ul></br>
           li Configure application.xml under comp as follows.
               div.stable1  
               ul.codeoptions1
@@ -57,6 +49,7 @@ div.downloadsContainer
               ul 
                 li This is the root file of simplity which helps to configure various features of Simplity. Here <b>"applicationId"</b> is a mandatory field which represents the application name. applicationId should be a unique name for the application.
                 li <b>NOTE:</b> To get more help, click ctrl + tab from the eclipse editor.
+          </br>
           li Create Simplity batch under comp/batch as follows.
               div.stable1  
               ul.codeoptions1
