@@ -1,0 +1,53 @@
+include ../header
+div.downloadsContainer
+  div.downloadsInnerContainer
+    div.downloadsHeader Filter
+    p.downloadsDesc Read rows from the underlying table/view based on the filtering criteria. Rows from one or more child-tables can also be read as part of this action. Auto-service is available with a service name pattern of filter_recordName.
+    br
+    p.downloadsDesc Attributes of Filter Action are:
+    br
+    table
+      tr 
+        th Attribute name
+        th Required?
+        th Description
+      tr
+          td
+              p filteringRecordName
+          td
+              p yes
+          td
+              p
+                  | Fully qualified record name. Filtering criteria is sequenced based on the input received for fields in this record.
+      tr
+          td
+              p outputRecordName
+          td
+              p no
+          td
+              p
+                  | Defaults to filteringRecordName. Record that is used for selecting output columns. Note that if this is different from filteringRecordName, then care should be taken to ensure that the underlying view has columns to satisfy both the records.
+      tr
+          td
+              p inputSheetName
+          td
+              p no
+          td
+              p
+                  | If this is not specified, input is expected in fields. If specified, we use first row of this sheet as input. We do no filter for each row of this sheet.
+      tr
+          td
+              p outputSheetName
+          td
+              p no
+          td
+              p Defaults to the sheet name associated with outputRecordName.
+      tr
+          td
+              p childRecords
+          td
+              p no
+          td
+              p
+                  | A child record has recordName and sheetName as its attributes.  sheetName would default to the value determined based on record. A child record should have declared one of its columns as a parentField.
+include ../footer

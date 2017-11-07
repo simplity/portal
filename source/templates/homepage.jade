@@ -52,9 +52,9 @@ div.loginContainer
       div.loginBannerButton-1
         a.loginBannerButtonText-1(href="/portal/examples/todos") VIEW EXAMPLE
       div.loginBannerButton-2
-        div.loginBannerButtonText-1 GET STARTED
+        a.loginBannerButtonText-1(href="/portal/getStarted/") GET STARTED
       div.loginBannerButton-3
-        div.loginBannerButtonText-2 VIEW DOCUMENTATION
+        a.loginBannerButtonText-2(href="/portal/docs/") VIEW DOCUMENTATION
   div.loginImage
     img(src= "/portal/images/openapi.png")
 div.flyContainer
@@ -74,25 +74,25 @@ div.helperContainer
   div.helperContent
     div.helperLeft
       div.helperHeader Simple built-in helpers that solve complicated logic
-      div.helperDescription Lorem ipsum dolor sit amet, pri tacimates salutatus forensibus ea. Sit ceteros hendrerit consequuntur an, dicta tibique eu vis.
+      div.helperDescription Out of the box functionaltiy for DB access, batch, transaction management, api client and server, mail, jms actions, data transformations etc.
       div.helperHeader2 Here are few examples:
       ul.helperDescription2
-         li example1
-         li example2
-         li example3
-         li example4
+         li
+           a(href="") Pet Store
+         li
+           a(href="") Contract Maintenance
+         li 
+           a(href="") Batch
+         li 
+           a(href="") To-do List
       div.helperButtonsBanner
          div.helperBannerButton-1
-            div.helperBannerButtonText-1 GET STARTED
+            a.helperBannerButtonText-1(href="/portal/getStarted/") GET STARTED
          div.helperBannerButton-2
-            div.helperBannerButtonText-2 VIEW DOCUMENTATION
+            a.helperBannerButtonText-2(href="/portal/docs/") VIEW DOCUMENTATION
     div.servletContainer
-      div.servletContent web.xml configuration for Simplity serve class
-div.feedbackContainer
-  div.feedbackInternalContainer
-    div.feedbackImg
-      img(src= "/portal/images/feedback.png")
-    div.feedback1 Simplity kernel allowed us to build a full-fledged e-commerce site within 2 days
+      img.servletContent(src="/portal/images/helper.png")
+
 div.featuresContainerHome
   div.featuresHeaderHome Features
   div.featuresDesc We provide the best solutions
@@ -104,28 +104,28 @@ div.featuresContainerHome
         div.actionHeader Read Action
         div.actionDesc Read a row from the underlying table/view based on the primary key value.
         div.actionLinkButton
-          div.actionLinkButtonText LEARN MORE
+          a.actionLinkButtonText(href="/portal/docs/features/read/") LEARN MORE
       li
         div.actionImage
           img(src= "/portal/images/readWithSql.png")
         div.actionHeader ReadWithSql Action
         div.actionDesc Use a sql to read data rows. Refer to sql definitions as a building block for details.
         div.actionLinkButton 
-          div.actionLinkButtonText LEARN MORE
+          a.actionLinkButtonText(href="/portal/docs/features/readWithSql/") LEARN MORE
       li
         div.actionImage
           img(src= "/portal/images/filter.png")
         div.actionHeader Filter Action
         div.actionDesc Read a row from the underlying table/view based on the filtering criteria.
         div.actionLinkButton
-          div.actionLinkButtonText LEARN MORE
+          a.actionLinkButtonText(href="/portal/docs/features/filter/") LEARN MORE
       li
         div.actionImage
           img(src= "/portal/images/readChildren.png")
         div.actionHeader ReadChildren Action
         div.actionDesc Action that reads rows from one or more child records based on the value of a parent key.
         div.actionLinkButton
-          div.actionLinkButtonText LEARN MORE
+          a.actionLinkButtonText(href="/portal/docs/features/readChildren/") LEARN MORE
     ul.actionsRow1
       li
         div.actionImage
@@ -133,26 +133,26 @@ div.featuresContainerHome
         div.actionHeader Save Action
         div.actionDesc Add,update or delete rows of data based on specification in a record along with children if needed.
         div.actionLinkButton
-          div.actionLinkButtonText LEARN MORE
+          a.actionLinkButtonText(href="/portal/docs/features/save/") LEARN MORE
       li
         div.actionImage
           img(src= "/portal/images/executeSql.png")
         div.actionHeader ExecuteSql Action
         div.actionDesc If a save action is not convenient for you to design your data operation,you may use this.
         div.actionLinkButton 
-          div.actionLinkButtonText LEARN MORE
+          a.actionLinkButtonText(href="/portal/docs/features/executeSql/") LEARN MORE
       li
         div.actionImage
           img(src= "/portal/images/keyValueList.png")
         div.actionHeader KeyValueList Action
         div.actionDesc This action is designed specifically for server to send list of possible values for a drop-down.
         div.actionLinkButton
-          div.actionLinkButtonText LEARN MORE
+          a.actionLinkButtonText(href="/portal/docs/features/keyValueList/") LEARN MORE
       li
         div.actionImage
           img(src= "/portal/images/batchProcessor.png")
         div.actionHeader BatchProcessor Action
         div.actionDesc This action allows the rows/items of the file/DB Query/Messages to be processed as batch.
         div.actionLinkButton
-          div.actionLinkButtonText LEARN MORE
+          a.actionLinkButtonText(href="/portal/docs/features/batchProcessor/") LEARN MORE
 include footer

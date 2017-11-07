@@ -1,0 +1,46 @@
+include ../header
+div.downloadsContainer
+  div.downloadsInnerContainer
+    div.downloadsHeader ExecuteSp 
+    p.downloadsDesc If your db operation is more complex, you may write a stored procedure and execute it using this action. Many applications are developed almost entirely in stored procedure on the server side. We recommend that you take a more practical approach and shift as much logic to application layer as possible. We encourage refactoring complex stored procedure into a set of service actions. 
+    br
+    p.downloadsDesc Attributes of ExecuteSp  are:
+    br
+    table
+      tr 
+        th Attribute name
+        th Required?
+        th Description
+      tr
+         td
+            p procedureName
+         td
+            p yes
+         td
+            p Fully qualified name of a stored procedure component.
+      tr
+         td
+            p sheetNameForInputParameters
+         td
+            p no
+         td
+            p
+               | If null, we assume primitive input parameters are to be taken from fields in service context. Note that arrays/data-structures are always expected in data sheets. If the sheet is specified, we take only one row from it, and ignore other rows. We do not execute the stored procedure repeatedly. In case you need such a design, you may use loop action.
+      tr
+         td
+            p sheetNameForOutputParameters
+         td
+            p no
+         td
+            p
+               | Primitive output parameters are copied as fields into the service context by default. You may copy them to a row in a sheet by specifying this attribute.
+      tr
+         td
+            p outputSheetNames
+         td
+            p no
+         td
+            p
+               | It is possible for a stored procedure to return one or more result sets. If your stored procedure has such a design, then the sheet names can be over-ridden using a comma separated list. Sheet names generally default to the one derived from the record name.
+
+include ../footer

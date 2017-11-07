@@ -29,6 +29,15 @@ var homepage = require("jade").compileFile(__dirname+"/source/templates/homepage
 	compoBatchspage= require("jade").compileFile(__dirname+"/source/templates/components/batch.jade"),
 	compoSppage= require("jade").compileFile(__dirname+"/source/templates/components/sp.jade"),
 	ontheflypage=require("jade").compileFile(__dirname+"/source/templates/on-the-fly.jade"),
+	batchProcessorpage=require("jade").compileFile(__dirname+"/source/templates/features/batchProcessor.jade"),
+	executeSqlpage=require("jade").compileFile(__dirname+"/source/templates/features/executeSql.jade"),
+    executeSppage=require("jade").compileFile(__dirname+"/source/templates/features/executeSp.jade"),
+	filterpage=require("jade").compileFile(__dirname+"/source/templates/features/filter.jade"),
+	keyValueListpage=require("jade").compileFile(__dirname+"/source/templates/features/keyValueList.jade"),
+	readpage=require("jade").compileFile(__dirname+"/source/templates/features/read.jade"),
+	readChildrenpage=require("jade").compileFile(__dirname+"/source/templates/features/readChildren.jade"),
+	readWithSqlpage=require("jade").compileFile(__dirname+"/source/templates/features/readWithSql.jade"),
+	savepage=require("jade").compileFile(__dirname+"/source/templates/features/save.jade"),
     fs=require("fs");
 
 fs.writeFile(__dirname+"/docs/index.html",homepage({title:'Home'}),function(err,data){
@@ -156,4 +165,32 @@ fs.writeFile(__dirname+"/docs/on-the-fly/index.html",ontheflypage({title:'On the
 fs.writeFile(__dirname+"/docs/getStarted/recordGeneration/index.html",recordgenerationpage({title:'Simplity Record Generation'}),function(err,data){	if (err) throw err;
 	console.log('The Simplity Record Generation file has been saved!');	
 });	
+fs.writeFile(__dirname+"/docs/docs/features/batchProcessor/index.html",batchProcessorpage({title:'Batch Processor action'}),function(err,data){	if (err) throw err;
+	console.log('The Simplity Record Generation file has been saved!');	
+});	
+fs.writeFile(__dirname+"/docs/docs/features/executeSql/index.html",executeSqlpage({title:'Execute SQL action'}),function(err,data){	if (err) throw err;
+	console.log('The Simplity Record Generation file has been saved!');	
+});	
+fs.writeFile(__dirname+"/docs/docs/features/executeSp/index.html",executeSppage({title:'Execute SP action'}),function(err,data){	if (err) throw err;
+	console.log('The Simplity Record Generation file has been saved!');	
+});	
+fs.writeFile(__dirname+"/docs/docs/features/filter/index.html",filterpage({title:'Filter Action'}),function(err,data){	if (err) throw err;
+	console.log('The Simplity Record Generation file has been saved!');	
+});	
+fs.writeFile(__dirname+"/docs/docs/features/keyValueList/index.html",keyValueListpage({title:'SKey value List action'}),function(err,data){	if (err) throw err;
+	console.log('The Simplity Record Generation file has been saved!');	
+});	
+fs.writeFile(__dirname+"/docs/docs/features/read/index.html",readpage({title:'Read Action'}),function(err,data){	if (err) throw err;
+	console.log('The Simplity Record Generation file has been saved!');	
+});	
+fs.writeFile(__dirname+"/docs/docs/features/readChildren/index.html",readChildrenpage({title:'Read Children Action'}),function(err,data){	if (err) throw err;
+	console.log('The Simplity Record Generation file has been saved!');	
+});	
+fs.writeFile(__dirname+"/docs/docs/features/readWithSql/index.html",readWithSqlpage({title:'Read with SQL Action'}),function(err,data){	if (err) throw err;
+	console.log('The Simplity Record Generation file has been saved!');	
+});	
+fs.writeFile(__dirname+"/docs/docs/features/save/index.html",savepage({title:'Save Action'}),function(err,data){	if (err) throw err;
+	console.log('The Simplity Record Generation file has been saved!');	
+});	
+
 

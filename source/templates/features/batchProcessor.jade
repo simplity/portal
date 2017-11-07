@@ -1,0 +1,521 @@
+include ../header
+div.downloadsContainer
+  div.downloadsInnerContainer
+    div.downloadsHeader BatchProcessor 
+    p.downloadsDesc The action allows the rows/items of file/DB Query/Messages to be processed as batch.
+    br
+    p.downloadsDesc Attributes of BatchProcessor are:
+    br
+    table
+      tr 
+        th Attribute name
+        th Required?
+        th Description
+      tr
+         td
+            p dbAccessType
+         td
+            p yes
+         td
+            p
+               | What kind of transaction management is to be used per row in this batch processing. Enumerated Values : none, readOnly, readWrite, autoCommit, subService, external.
+      tr
+         td
+            p exitOnInterrupt
+         td
+            p no
+         td
+            p
+               | Should the batch processing stop after processing the current row in case of an interrupt issued by the admin?.
+      tr
+         td
+            p inputFolder
+         td
+            p no
+         td
+            p
+               | Name of the folder where the files where input files are located. use $fieldName to use a field in the service context. Child-input files, if any are also expected in this folder. In case you need to locate them on a different folder, you should use the relative folder prefix as part of the filename for the input.
+      tr
+         td
+            p jmsUsage
+         td
+            p no
+         td
+            p
+               | Use this ONLY IF you use any jms in your service, either inside your java classes, or using JmsConsumer or JmsProducer actions.Enumerated Values : notManaged, serviceManaged, externallyManaged.
+      tr
+         td
+            p outputFolder
+         td
+            p no
+         td
+            p
+               | Name of the folder where the files are to be written out. use $fieldName to use a field in the service context.Child-file output, if any, will also be output to this folder. In case you need to organize them to a different folder, you may use relative path as part of the file name.
+      tr
+         td
+            p schemaNme
+         td
+            p no
+         td
+            p In case this batch process uses a schema other than the default for the project.
+      tr
+         td
+            p serviceOnErrorAtRowLevel
+         td
+            p no
+         td
+            p
+               | Name of the service to be executed as a sub-service in case of error while processing a row.
+      tr
+         td
+            p serviceOnInvalidInput
+         td
+            p no
+         td
+            p
+               | Name of the service to be executed as a sub-service in case an input row has validation errors.
+      tr
+         td
+            p setActualFileNameTo
+         td
+            p no
+         td
+            p
+               | If this processor is designed to work in more than one file, some logic may need to get the actual file name being processed. This is the field name to which the actual driver file being processed is set to in service
+               | context.
+    br
+    h3 BatchRowProcessor
+    br
+    table
+      colgroup
+         col
+         col
+         col
+      tbody
+         tr
+            td
+               p Attribute name
+            td
+               p Required?
+            td
+               p Description
+         tr
+            td
+               p conditionToAggregate
+            td
+               p no
+            td
+               p
+                  | If there are aggregators, and under some circumstances, you want to process the row, but not accumulate/aggregate. If specified, the row is aggregated only if this expression evaluates to true.
+         tr
+            td
+               p customInputClassName
+            td
+               p no
+            td
+               p
+                  | In case you have custom code that provides input rows for a batch processor. Note that a batchRowProcessor should have one and only one way to input.
+         tr
+            td
+               p customOutputClassName
+            td
+               p no
+            td
+               p
+                  | If you have custom code that writes some output. This can be provided in addition to outputFile
+                  | and outputQueue.
+         tr
+            td
+               p inputSql
+            td
+               p no
+            td
+               p
+                  | Use this option to use the result of query as the primary driver for batch processing. Either this is to be
+                  | specified or inputFile is to be specified.
+    br
+    h3 ActionBeforeChildren
+    p.downloadsDesc Action to be executed for this row, before processing any child row. If there are more than one row use block action to group them.
+    table
+         colgroup
+            col
+            col
+            col
+         tbody
+            tr
+               td
+                  p Attribute name
+               td
+                  p Required?
+               td
+                  p Description
+            tr
+               td
+                  p actions
+               td
+                  p no
+               td
+                  p actions that make up the body of this ActionBeforeChildren.
+    br
+    h3 ActionAfterChildren
+    p.downloadsDesc Action to be executed for this row, after processing any child rows. If there are more than one row use block action to group them.
+    table
+         colgroup
+            col
+            col
+            col
+         tbody
+            tr
+               td
+                  p Attribute name
+               td
+                  p Required?
+               td
+                  p Description
+            tr
+               td
+                  p actions
+               td
+                  p no
+               td
+                  p actions that make up the body of this ActionBeforeChildren.
+    br
+    h3 ChildProcessors
+    p.downloadsDesc One or more file processors associated with this. Like lines for a header.
+    br
+    h3 Aggregators
+    p.downloadsDesc Action to be executed for creating aggregated fields group by keys.
+    br
+    h3 Aggregator
+    table
+            colgroup
+               col
+               col
+               col
+            tbody
+               tr
+                  td
+                     p Attribute name
+                  td
+                     p Required?
+                  td
+                     p Description
+               tr
+                  td
+                     p aggregationType
+                  td
+                     p yes
+                  td
+                     p
+                        | It is possible to output the value as decimal or integral irrespective of the input field type.
+               tr
+                  td
+                     p inputFieldName
+                  td
+                     p yes
+                  td
+                     p
+                        | Name of the field/column in the child row being accumulated. For count, use * as the name if you want to count all rows. Otherwise only rows with non-null value of this column are counted.
+               tr
+                  td
+                     p outputFieldName
+                  td
+                     p yes
+                  td
+                     p
+                        | Name of the field/column with which the aggregated value is written out to parent row/context.
+               tr
+                  td
+                     p outputIsDecimal
+                  td
+                     p no
+                  td
+                     p
+                        | Relevant for math functions. Default would be to output accumulated value as number/integer.
+    br
+    h3 InputFile
+    p.downloadsDesc Specify details of input file.
+    table
+         colgroup
+            col
+            col
+            col
+         tbody
+            tr
+               td
+                  p Attribute name
+               td
+                  p Required?
+               td
+                  p Description
+            tr
+               td
+                  p fileName
+               td
+                  p yes
+               td
+                  p
+                     | For primary input file, this is the file-name-pattern as a regular expression. This is NOT wild card. If there is only one file, you may use $fieldName, @propertyName as well. For child-file, this may be expressed as part of the main file name. {name} and {ext} will stand for name and extension of primary file. or an output file, the reference file is always the corresponding input file. The file name is relative to the rootFolder as specified in batchProcess.
+            tr
+               td
+                  p dataFormat
+               td
+                  p yes
+               td
+                  p In what format is data received in the file?
+            tr
+               td
+                  p recordName
+               td
+                  p yes
+               td
+                  p Qualified name of record that defines the fields in this flat file.
+            tr
+               td
+                  p conditionToProcess
+               td
+                  p no
+               td
+                  p
+                     | If there are checks/conditions to ignore/reject a row, specify the expression here. Row that is read is selected for further processing only if this condition evaluates to true.
+            tr
+               td
+                  p deleteFile
+               td
+                  p no
+               td
+                  p
+                     | not valid if renameInfileTo is specified. if set to true, file is deleted after processing.
+            tr
+               td
+                  p linkFieldsInParentRow
+               td
+                  p no
+               td
+                  p
+                     | Required if linkFieldsInThisRow is specified. This is the list of fields in the parent record to be matched.
+            tr
+               td
+                  p linkFieldsInThisRow
+               td
+                  p no
+               td
+                  p
+                     | For a child file that may have more than one row for a parent row. This is the list of fields in this file that are to be matched with corresponding fields in parent as specified in linkFieldsInParentRow.
+            tr
+               td
+                  p renameInfileTo
+               td
+                  p no
+               td
+                  p
+                     | Name of file relative to rootFolder that may contain {name} and {ext} as name/ext of input file name.
+                     | $fieldName to get it as a field.
+    br
+    h3 InputQueue
+    table
+         colgroup
+            col
+            col
+            col
+         tbody
+            tr
+               td
+                  p Attribute name
+               td
+                  p Required?
+               td
+                  p Description
+            tr
+               td
+                  p bodyFieldName
+               td
+                  p no
+               td
+                  p
+                     | Field name that is used to extract message body into, or for preparing it. Valid if messsageBody is used.
+            tr
+               td
+                  p extractAll
+               td
+                  p no
+               td
+                  p Trust the producer and extract all data from message.
+            tr
+               td
+                  p queueName
+               td
+                  p no
+               td
+                  p
+                     | JNDI name to locate the queue. Required for request queue. Temp queue is used for response if name is not specified.
+            tr
+               td
+                  p messageBodyType
+               td
+                  p no
+               td
+                  p If the message body is used for transporting data, how is it formatted?
+            tr
+               td
+                  p messageExtractor
+               td
+                  p no
+               td
+                  p
+                     | custom java class that extracts fields from message into service context. This class should implement DataExtractor interface.
+            tr
+               td
+                  p messageFormatter
+               td
+                  p no
+               td
+                  p
+                     | custom java class that creates the message from service context. This class should implement MessageFormatter interface.
+            tr
+               td
+                  p messageType
+               td
+                  p no
+               td
+                  p In case this attribute is used for the queue and being used by your application.
+    br
+    h3 OutputFile
+    p.downloadsDesc Specify details of output file, if any.
+    table
+         colgroup
+            col
+            col
+            col
+         tbody
+            tr
+               td
+                  p Attribute name
+               td
+                  p Required?
+               td
+                  p Description
+            tr
+               td
+                  p fileName
+               td
+                  p yes
+               td
+                  p
+                     | For primary input file, this is the file-name-pattern as a regular expression. This is NOT wild card. If there is only one file, you may use $fieldName, @propertyName as well. For child-file, this may be expressed as part of the main file name. {name} and {ext} will stand for name and extension of primary file. or an output file, the reference file is always the corresponding input file. The file name is relative to the rootFolder as specified in batchProcess.
+            tr
+               td
+                  p dataFormat
+               td
+                  p yes
+               td
+                  p In what format is data received in the file?
+            tr
+               td
+                  p recordName
+               td
+                  p yes
+               td
+                  p Qualified name of record that defines the fields in this flat file.
+            tr
+               td
+                  p conditionToOutput
+               td
+                  p no
+               td
+                  p
+                     | if the output row should not be written conditionally. Ensure that this expression evaluates to a boolean value.
+            tr
+               td
+                  p deleteFile
+               td
+                  p no
+               td
+                  p
+                     | not valid if renameInfileTo is specified. if set to true, file is deleted after processing.
+            tr
+               td
+                  p linkFieldsInParentRow
+               td
+                  p no
+               td
+                  p
+                     | Required if linkFieldsInThisRow is specified. This is the list of fields in the parent record to be matched.
+            tr
+               td
+                  p renameInfileTo
+               td
+                  p no
+               td
+                  p
+                     | Name of file relative to rootFolder that may contain {name} and {ext} as name/ext of input file name.
+                     | $fieldName to get it as a field
+    br
+    h3 OutputQueue
+    table
+         colgroup
+            col
+            col
+            col
+         tbody
+            tr
+               td
+                  p Attribute name
+               td
+                  p Required?
+               td
+                  p Description
+            tr
+               td
+                  p bodyFieldName
+               td
+                  p no
+               td
+                  p
+                     | Field name that is used to extract message body into, or for preparing it. Valid if messsageBody is used.
+            tr
+               td
+                  p extractAll
+               td
+                  p no
+               td
+                  p Trust the producer and extract all data from message.
+            tr
+               td
+                  p queueName
+               td
+                  p no
+               td
+                  p
+                     | JNDI name to locate the queue. Required for request queue. Temp queue is used for response if name is not specified.
+            tr
+               td
+                  p messageBodyType
+               td
+                  p no
+               td
+                  p If the message body is used for transporting data, how is it formatted?
+            tr
+               td
+                  p messageExtractor
+               td
+                  p no
+               td
+                  p
+                     | custom java class that extracts fields from message into service context. This class should implement DataExtractor interface.
+            tr
+               td
+                  p messageFormatter
+               td
+                  p no
+               td
+                  p
+                     | custom java class that creates the message from service context. This class should implement MessageFormatter interface.
+            tr
+               td
+                  p messageType
+               td
+                  p no
+               td
+                  p In case this attribute is used for the queue and being used by your application.
+include ../footer

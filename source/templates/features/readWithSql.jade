@@ -1,0 +1,45 @@
+include ../header
+div.downloadsContainer
+  div.downloadsInnerContainer
+    div.downloadsHeader ReadWithSql 
+    p.downloadsDesc Use a sql to read data rows. Refer to sql definition as a building block for details. Rows from one or more child-tables can also be read as part of this action.
+    br
+    p.downloadsDesc Attributes of ReadWithSql Action are:
+    br
+    table
+      tr 
+        th Attribute name
+        th Required?
+        th Description
+      tr
+        td
+          p sqlName
+        td
+          p yes
+        td
+          p Fully qualified sql name.
+      tr
+        td
+          p inputSheetName
+        td
+          p no
+        td
+          p
+            | If this is not specified, primary input fields for sql are assumed to be fields in the service context. If sheet name is specified, then the input fields for sql are columns in the sheet.
+      tr
+        td
+          p outputSheetName
+        td
+          p no
+        td
+          p
+            | If specified, output data is copied to a sheet with this name. Else first (or only) row of the output is copied as fields in the service context.
+      tr
+        td
+          p childRecords
+        td
+          p no
+        td
+          p refer to read action.
+
+include ../footer

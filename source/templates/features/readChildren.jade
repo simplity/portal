@@ -1,0 +1,36 @@
+include ../header
+div.downloadsContainer
+  div.downloadsInnerContainer
+    div.downloadsHeader ReadChildren
+    p.downloadsDesc Action that reads rows from one or more child records based on value of a parent key. 
+    br
+    p.downloadsDesc Attributes of messages are:
+    br
+    table
+      tr 
+        th Attribute name
+        th Required?
+        th Description
+      tr
+         td
+            p recordName
+         td
+            p yes
+         td
+            p
+               | Qualified name of record that represents the table/view. This record must have specified component.
+      tr
+         td
+            p outputSheetName
+         td
+            p no
+         td
+            p Defaults to sheet name for the record. Rows are returned in this sheet.
+      tr
+         td
+            p parentKeyFieldName
+         td
+            p yes
+         td
+            p Name of field in the service context that has the value for parent key.
+include ../footer

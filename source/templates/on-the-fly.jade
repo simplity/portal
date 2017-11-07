@@ -102,35 +102,34 @@ div.downloadsContainer
                                        a(href='https://github.com/simplity/simplity/tree/master/examples/helloworld#asciidoctor') helloworld
                                        | .
                                        br
-        div
-          table
-            tbody
-              tr
-                td
-                  div Note
-                td
-                  div
-                    p
-                      strong
-                        em Examples :
-                  div
-                    ul
-                      li
-                        p
-                          | For record agents, if the user wants to filter &apos;commission&apos; column field from 0.13 to 0.16 then while calling the function user has to provide the below details :
-                        div
-                          div
-                            pre.
-                              \nvar data = "{'fieldName':'commission','commission':0.13,'commissionOperator':'><','commissionTo':0.16}";
-                               Simplity.getResponse("filter_tables.agents",data,onSuccess,onError);                              
-                      li
-                        p
-                          | Composite Primary key :For record compParent, if the user wants to filter &apos;createdUser&apos; column field from 100 to 120 then while calling the function user has to provide the below details :
-                        div
-                          div
-                            pre.
-                              \nvar data = "{'fieldName':'createdUser','createdUser':'100','createdUserOperator':'><','createdUserTo':'120'}";
-                              Simplity.getResponse("filter_tables.compParent",data,onSuccess,onError);                              
+                                       table
+                                         tbody
+                                           tr
+                                             td
+                                               div Note
+                                             td
+                                               div
+                                                 p
+                                                   strong
+                                                     em Examples :
+                                               div
+                                                 ul
+                                                   li
+                                                     p
+                                                       | For record agents, if the user wants to filter &apos;commission&apos; column field from 0.13 to 0.16 then while calling the function user has to provide the below details :
+                                                     div
+                                                       div
+                                                         pre.
+                                                           \nvar data = "{'fieldName':'commission','commission':0.13,'commissionOperator':'><','commissionTo':0.16}";
+                                                            Simplity.getResponse("filter_tables.agents",data,onSuccess,onError);                              
+                                                   li
+                                                     p
+                                                       | Composite Primary key :For record compParent, if the user wants to filter &apos;createdUser&apos; column field from 100 to 120 then while calling the function user has to provide the below details :
+                                                     div
+                                                       div
+                                                         pre.
+                                                           \nvar data = "{'fieldName':'createdUser','createdUser':'100','createdUserOperator':'><','createdUserTo':'120'}";
+                                                           Simplity.getResponse("filter_tables.compParent",data,onSuccess,onError);                              
         div
           ul
             li

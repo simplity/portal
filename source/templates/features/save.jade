@@ -1,0 +1,54 @@
+include ../header
+div.downloadsContainer
+  div.downloadsInnerContainer
+    div.downloadsHeader Save 
+    p.downloadsDesc Add, update or delete rows of data based on specification in a record. While adding we handle primary key generation, as well as values for fields like createdBy, created at etc.. Concurrency is an issue while updating a row. We handle it if you declare a time-stamp field in your record (fieldType="modifiedTimeStamp" and set use useTimestampForConcurrency="true") Auto service feature is available as save_recordName.
+    br
+    p.downloadsDesc Attributes of messages are:
+    br
+    table
+      tr 
+        th Attribute name
+        th Required?
+        th Description
+      tr
+         td
+            p recordName
+         td
+            p yes
+         td
+            p
+               | Fully qualified record name. Obviously, this record should be associated with a table, or in some cases, an updatable view.
+      tr
+         td
+            p saveAction
+         td
+            p no
+         td
+            p
+               | add, modify, delete or save. Save is the default. Save is valid only if primary key is to be generated. If key is supplied by client we modify that row, else we add a row with a new key. If key is not generated, then you must specify add/modify explicitly.   Special field named _saveAction is reserved for the value of save action. This is also the name of column in case input is in a data sheet.
+      tr
+         td
+            p inputSheetName
+         td
+            p no
+         td
+            p
+               | If null, we assume one row is available as fields in service context. If the sheet has multiple rows, they are saved as a batch using jdbc. This method may have performance issues if thousands of rows are to be saved. You should consider alternate designs like ETL for large volume updates.
+      tr
+         td
+            p treatSqlErrorAsNoResult
+         td
+            p no
+         td
+            p
+               | At times, you may design an insert operation that will try to insert failing which you may want to update. In such cases, you may get a sql error on key-violation. By default we would raise an exception. You may alter this behavior with this keyword.
+      tr
+         td
+            p childRecords
+         td
+            p no
+         td
+            p
+               | You may save rows for one or more child tables as well using child records. If a parent row is added, then obviously all child rows are to be added. If the parent row is modified, you may either add/modify/delete child rows, or replace existing rows with new set of rows. This is possible if the child table is not referred by any other table. That is, primary key of the child table is not a foreign key in any other table. You indicate this design using replaceRows="true"
+include ../footer
