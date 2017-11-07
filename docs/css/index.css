@@ -1003,6 +1003,7 @@ a.navLinks:hover {
 .codeoptions {
   list-style-type: none;
   display: inline-block;
+  padding-left: 1px;
 }
 .codeoptions li {
   display: inline;
@@ -1087,6 +1088,7 @@ a.navLinks:hover {
 .codeoptions1 {
   list-style-type: none;
   display: inline-block;
+  padding-left: 1px;
 }
 .codeoptions1 li {
   display: inline;
@@ -1165,4 +1167,8 @@ td {
 td:nth-child(1) {
   width: 20%;
   text-align: center;
+}
+.copyCode {
+  color: #1e74e6;
+  text-decoration: none;
 }

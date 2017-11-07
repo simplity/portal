@@ -1,4 +1,5 @@
 include ../header
+script(src='../../js/home.js')
 div.downloadsContainer
   div.downloadsInnerContainer
     div.downloadsHeader Simplity Service with Java program
@@ -12,14 +13,14 @@ div.downloadsContainer
         div.line
         div.stable For Maven users-
         ul.codeoptions
-          li Copy code
+          button.copyCode(onclick="toClipboard('dependency1')") copy code
         div.box
-          div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
+          div.dependency#dependency1 &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
         div.stable Plain Java-
         ul.codeoptions
-          li Copy code
+          button.copyCode(onclick="toClipboard('dependency1')") copy code
         div.box
-          div.dependency &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;/groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
+          div.dependency#dependency2 &lt;dependency&gt; </br>&lt;groupId&gt;org.simplity&lt;/groupId&gt; </br>&lt;artifactIdId&gt;simplity&lt;/artifactId&gt;</br>&lt;version&gt;1.2&lt;/version&gt;</br>&lt;/dependency&gt;
         div.releaseList1 2. Creating project
         div.line
         ul.creationSteps
@@ -35,8 +36,8 @@ div.downloadsContainer
             div
               div.stable1    
               ul.codeoptions1
-                li Copy code
-              div.boxcustom
+                button.copyCode(onclick="toClipboard('appxml')") copy code
+              div.boxcustom#appxml
                 &lt;?xml version="1.0" encoding="UTF-8"?&gt;</br>&lt;application</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xmlns="http://www.simplity.org/schema"</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;applicationId="ContractService"</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;autoLoginUserId="100"</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;logSqls="true"&gt;</br>&lt;/application&gt;</br>&nbsp;&nbsp;
               ul 
                 li This is the root file of simplity which helps to configure various features of Simplity. Here <b>"applicationId"</b> is a mandatory field which represents the application name. applicationId should be a unique name for the application.
@@ -46,8 +47,8 @@ div.downloadsContainer
             div
               div.stable1    
               ul.codeoptions1
-                li Copy code
-              div.boxcustom
+                button.copyCode(onclick="toClipboard('myservicexml')") copy code
+              div.boxcustom#myservicexml
                 &lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;</br>&lt;service xmlns="http://www.simplity.org/schema"</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name="myService" </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dbAccessType="none"&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;actions&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;setValue fieldName="hello" fieldValue="Invoking Simplity service from Java program - Success"&gt;&lt;/setValue&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/actions&gt;</br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;outputData fieldNames="hello"&gt;&lt;/outputData&gt;</br>&lt;/service&gt;</br></br> 
           
         div.releaseList1 3. Write Java program to invoke Simplity Service
@@ -57,8 +58,8 @@ div.downloadsContainer
             div
               div.stable1    
               ul.codeoptions1
-                li Copy code
-              div.boxcustom
+                button.copyCode(onclick="toClipboard('javaprogram')") copy code
+              div.boxcustom#javaprogram
                 </br>import org.simplity.kernel.Application;</br>import org.simplity.service.JavaAgent;</br>import org.simplity.service.ServiceData;</br></br>public class SimplityServiceWithJava {</br></br>&nbsp;&nbsp;&nbsp;&nbsp;public static void main(String[] args) throws Exception {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String comp = "D:/GITHub/examples/helloworld/src/main/resources/comp";<b>// Simplity comp folder path</b></br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Application.bootStrap(comp);</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String serviceName = "myService";</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JavaAgent agent = JavaAgent.getAgent("100", "");</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ServiceData outData = agent.serve(serviceName, "");</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(outData.getPayLoad());</br>&nbsp;&nbsp;&nbsp;&nbsp;}</br></br>}</br></br>
                 
 include ../footer
