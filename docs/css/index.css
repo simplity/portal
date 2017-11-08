@@ -867,7 +867,7 @@ a.navLinks:hover {
   height: 34px;
   width: 100%;
   color: #32325d;
-  font-family: SegoeUI;
+  font-family: Segoe UI;
   font-size: 34px;
   font-weight: 600;
   position: relative;
@@ -885,7 +885,7 @@ a.navLinks:hover {
 }
 .examplesRow li {
   height: 235px;
-  width: 23%;
+  width: 30%;
   border: 1px solid #e8ecf0;
   background-color: #fff;
   display: inline-block;
@@ -895,7 +895,7 @@ a.navLinks:hover {
   height: 36px;
   width: 100%;
   color: #32325d;
-  font-family: SegoeUI;
+  font-family: Segoe UI;
   font-size: 18px;
   font-weight: 600;
   line-height: 18px;
