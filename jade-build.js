@@ -15,11 +15,11 @@ var homepage = require("jade").compileFile(__dirname+"/source/templates/homepage
 	webappwithdbpage = require("jade").compileFile(__dirname+"/source/templates/getStarted/webappwithDb.jade"),
 	recordgenerationpage = require("jade").compileFile(__dirname+"/source/templates/getStarted/recordGeneration.jade"),
 	downloadspage = require("jade").compileFile(__dirname+"/source/templates/downloads.jade"),
-	examplesDescpage1 = require("jade").compileFile(__dirname+"/source/templates/examples/mcHelloWorld/mcHelloWorld.jade"),
-	examplesDescpage2 = require("jade").compileFile(__dirname+"/source/templates/examples/petstore/petClinic.jade"),
-	examplesDescpage3 = require("jade").compileFile(__dirname+"/source/templates/examples/todos/todos.jade"),
-	examplesDescpage4 = require("jade").compileFile(__dirname+"/source/templates/examples/contract/contract.jade"),
-	examplesDescpage5 = require("jade").compileFile(__dirname+"/source/templates/examples/springInt/springInt.jade"),
+	examplesDescpage2 = require("jade").compileFile(__dirname+"/source/templates/examples/petClinic.jade"),
+	examplesDescpage3 = require("jade").compileFile(__dirname+"/source/templates/examples/todos.jade"),
+	examplesDescpage4 = require("jade").compileFile(__dirname+"/source/templates/examples/contract.jade"),
+	examplesDescpage5 = require("jade").compileFile(__dirname+"/source/templates/examples/springInt.jade"),
+	examplesDescpage6 = require("jade").compileFile(__dirname+"/source/templates/examples/batch.jade"),
 	compoServicepage = require("jade").compileFile(__dirname+"/source/templates/components/services.jade"),	
 	compoDTpage= require("jade").compileFile(__dirname+"/source/templates/components/datatypes.jade"),	
 	compoRecpage= require("jade").compileFile(__dirname+"/source/templates/components/records.jade"),
@@ -97,10 +97,6 @@ fs.writeFile(__dirname+"/docs/getStarted/simplityBatch/index.html",simplitybatch
 	if (err) throw err;
 	console.log('The simplityBatch file has been saved!');	
 });
-fs.writeFile(__dirname+"/docs/examples/mcHelloWorld.html",examplesDescpage1({title:'helloworld'}),function(err,data){
-	if (err) throw err;
-	console.log('The mcHelloWorld file has been saved!');	
-});	
 fs.writeFile(__dirname+"/docs/examples/petstore/index.html",examplesDescpage2({title:'Pet Store'}),function(err,data){
 	if (err) throw err;
 	console.log('The petClinic file has been saved!');	
@@ -115,6 +111,10 @@ fs.writeFile(__dirname+"/docs/examples/contract/index.html",examplesDescpage4({t
 	console.log('The contract file has been saved!');
 });
 fs.writeFile(__dirname+"/docs/examples/springInt/index.html",examplesDescpage5({title:'Spring Integration'}),function(err,data){
+	if (err) throw err;
+	console.log('The contract file has been saved!');
+});
+fs.writeFile(__dirname+"/docs/examples/batch/index.html",examplesDescpage6({title:'Batch'}),function(err,data){
 	if (err) throw err;
 	console.log('The contract file has been saved!');
 });
