@@ -29,6 +29,7 @@ var homepage = require("jade").compileFile(__dirname+"/source/templates/homepage
 	compoBatchspage= require("jade").compileFile(__dirname+"/source/templates/components/batch.jade"),
 	compoSppage= require("jade").compileFile(__dirname+"/source/templates/components/sp.jade"),
 	ontheflypage=require("jade").compileFile(__dirname+"/source/templates/on-the-fly.jade"),
+	openapispecpage=require("jade").compileFile(__dirname+"/source/templates/openapispec.jade"),
 	batchProcessorpage=require("jade").compileFile(__dirname+"/source/templates/features/batchProcessor.jade"),
 	executeSqlpage=require("jade").compileFile(__dirname+"/source/templates/features/executeSql.jade"),
     executeSppage=require("jade").compileFile(__dirname+"/source/templates/features/executeSp.jade"),
@@ -161,6 +162,10 @@ fs.writeFile(__dirname+"/docs/components/sp/index.html",compoSppage({title:'Stor
 fs.writeFile(__dirname+"/docs/on-the-fly/index.html",ontheflypage({title:'On the fly services'}),function(err,data){
 	if (err) throw err;
 	console.log('The home file has been saved!');	
+});	
+fs.writeFile(__dirname+"/docs/openapispec/index.html",openapispecpage({title:'Open API spec to service'}),function(err,data){
+	if (err) throw err;
+	console.log('The open api spec file has been saved!');	
 });	
 fs.writeFile(__dirname+"/docs/getStarted/recordGeneration/index.html",recordgenerationpage({title:'Simplity Record Generation'}),function(err,data){	if (err) throw err;
 	console.log('The Simplity Record Generation file has been saved!');	

@@ -1,0 +1,88 @@
+include header
+div.downloadsContainer
+  div.downloadsInnerContainer
+    div.downloadsHeader Open API Specification
+    div.downloadsDesc Simplity support Swagger. Swagger is the largest framework of API developer tools for the OpenAPI Specification. Swagger specification creates the RESTful contract for your API, detailing all of its resources and operations in a readable format. It describes the entire API including (available endpoints and operations on each endpoint, input/output parameters for each operation, etc.) For mode detail about Swagger, check out the 
+         a(href='https://swagger.io/ ',target='_blank')  swagger website.
+    br
+    div.downloadsHeader Open API Structure
+    div.downloadsDesc Open API specification is written JSON format. It starts with swagger version, info, host, basepath, paths (includes operation,  parameters, request body, response, input and output models). 
+    br
+    div Tip #[string Refer Simplity service to define <b>operations and parameters</b>, and Simplity record to define <b>definitions</b>]
+    br
+    p Input may contain records. A record may be used to get fields or a list/table of rows. Record is used with specific purpose. &ldquo;get&rdquo;, &ldquo;filter&rdquo;, &ldquo;save&rdquo; ,&ldquo;list&rdquo; and &ldquo;suggest&rdquo; are possible values.
+    ul
+      li
+        p
+          strong &ldquo;paths&rdquo;
+          |   defines the endpoints of the API and operation supported by these endpoints.
+          br
+          div
+            table
+              tbody
+                tr
+                  td
+                    div paths section
+                  td
+                    div
+                      p
+                        strong
+                          em Syntax
+                        | :
+                    div
+                      ul
+                        li
+                          p
+                            <b>"paths": {</br>&nbsp;&nbsp;&nbsp;&nbsp;"URL": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"get": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tags": [ "" ],&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"operationId": "Simplity service name",</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"summary": "findUser",</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"description":"find user service",</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"deprecated": false,</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"parameters":[],</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"responses": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"200": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"description": "find user",</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"schema": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"$ref": "#/definitions/User"</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</br>&nbsp;&nbsp;&nbsp;&nbsp;}</br>}</b>
+                    div
+                      p
+                        strong
+                          em Attributes
+                        | :
+                    div
+                      ul
+                        li
+                          p <b>"URL"</b> - URL path (Example: /users)
+                        li
+                          p <b>get</b> - http method
+                        li
+                          p <b>operationId</b> - simplity service name
+                        li
+                          p <b>parameters</b> - list of input parameters
+                        li
+                          p <b>responses</b> - includes status code and schema. schema can be referenced inline or using $ref.
+          br
+      li
+        p
+          strong &ldquo;definitions&rdquo;
+          |   define common data structures used in API and it is referenced in path section using $ref.
+          br
+          div
+            table
+              tbody
+                tr
+                  td
+                    div definitions section
+                  td
+                    div
+                      p
+                        strong
+                          em Syntax
+                        | :
+                    div
+                      ul
+                        li
+                          p
+                            <b>"definitions": {</br>&nbsp;&nbsp;&nbsp;&nbsp;"schema": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "object",</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"properties": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"propertyName": {</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type": "string",</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"format": ""</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</br>&nbsp;&nbsp;&nbsp;&nbsp;}</br>}</b>
+                    div
+                      p
+                        strong
+                          em Attributes
+                        | :
+                    div
+                      ul
+                        li
+                          p <b>schema</b> - schema name (Example: user)
+                        li
+                          p <b>properties</b> - list of properties (includes property name, property type and property format).&nbsp;&nbsp;
+include footer
